@@ -3,6 +3,20 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* CONSTANTES con clases */
+/* IDS */
+/* #contenedor {
+    background-color: peru;
+} */
+
+/* CLASES */
+.contenedor {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* NAV */
 nav {
     display: flex;
     justify-content: space-between;
@@ -41,5 +55,60 @@ nav div a {
     /* background-color: #e74c3c; */
     padding: 10px 20px;
     font-size: 20px;
+}
+
+/* HEADER */
+header {
+    /* margin-top: 30px; */
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /* background-color: peru; */
+    div {
+        /* width: 1200px; */
+        /* width: 80%;
+        margin-left: auto;
+        margin-right: auto; */
+        /* border: 10px solid red; */
+        position: relative;
+        img {
+            width: 100%;
+            display: block;
+        }
+        h1 {
+            background-color: rgba(0,0,0, .3);
+            position: absolute;
+            /* top, left, right, bottom */
+            /* top: 0; */
+            margin: 0;
+            bottom: 30px;
+            right: 40px;
+            font-size: 35px;
+            width: 60%;
+            padding: 10px 15px;
+        }
+    }
+}
+
+/* SECTION */
+/* DON'T REPEAT YOURSELF */
+section {
+    padding-bottom: 50px;
+    #contenedor {
+        display: flex;
+        column-gap: 20px;
+        article {
+            width: 70%;
+            background-color: #1abc9c;
+        }
+        div {
+            width: 30%;
+            background-color: #e67e22;
+        }
+        article, 
+        div {
+            border-radius: 10px;
+            padding: 20px;
+        }
+    }    
 }
 
