@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.contenedor {
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav__contenedor {
+  display: flex;
+  font-size: 2rem;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+.nav__contenedor--logo {
+  font-size: 2.4rem;
+  font-weight: 200;
+  color: rgb(23, 23, 23);
+  letter-spacing: 0.5rem;
+}
+.nav__contenedor__menuUser--link svg {
+  width: 2rem;
+}
+
+/*# sourceMappingURL=estilos.css.map */
