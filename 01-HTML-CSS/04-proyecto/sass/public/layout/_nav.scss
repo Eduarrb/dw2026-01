@@ -3,6 +3,7 @@
         display: flex;
         font-size: 2rem;
         justify-content: space-between;
+        align-items: center;
         text-transform: uppercase;
         &--logo {
             font-size: 2.4rem;
@@ -10,10 +11,37 @@
             color: rgb(23, 23, 23);
             letter-spacing: .5rem;
         }
-        &__menuUser {
+        &__menu {
+            display: flex;
+            column-gap: 1rem;
             &--link {
+                font-size: 1.2rem;
+                color: rgb(82, 82, 82);
+                padding: 1rem 1.5rem;
+                display: inline-block;
+                // margin-right: 1rem;
+                // &:not(:last-child){
+                //     margin-right: 1rem;
+                // }
+                transition: all .3s;
+                &:hover {
+                    color: rgba(black,.9);
+                    transition: all .3s;
+                }
+            }
+        }
+        &__menuUser {
+            display: flex;
+            align-items: center;
+            &--link {
+                font-size: 1.2rem;
+                color: rgb(23, 23, 23);
+                padding: 0 .5rem;
+                display: inline-block;
                 svg {
+                    color: black;
                     width: 2rem;
+                    stroke-width: 2px;
                 }
             }
         }
