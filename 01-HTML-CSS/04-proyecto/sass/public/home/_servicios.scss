@@ -1,0 +1,39 @@
+.servicios {
+    border-bottom: 1px solid rgba(23,23,23,.1);
+    &__contenedor {
+        display: flex;
+        flex-wrap: wrap;
+        &__item {
+            // background-color: peru;
+            // border: 3px solid red;
+            padding: 0 0.5rem;
+            // box-sizing: border-box;
+            // width: 40rem;
+            // width: 38.4rem;
+            // width: calc(100% / 3 - 1.6rem);
+            width: calc(100% / 3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &--icon {
+                margin-right: 2rem;
+                color: rgb(163, 163, 163);
+                svg {
+                    width: 2.5rem;
+                }
+            }
+            &--text {
+                h3 {
+                    font-size: 1.5rem;
+                    text-transform: capitalize;
+                    font-weight: 300;
+                    margin-bottom: .5rem;
+                }
+                p {
+                    font-size: 1.3rem;
+                    color: rgba(23,23,23,0.5);
+                }
+            }
+        }
+    }
+}

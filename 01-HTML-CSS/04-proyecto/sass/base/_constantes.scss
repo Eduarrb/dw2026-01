@@ -4,6 +4,34 @@
     margin-right: auto;
 }
 
+.btn {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: center;
+    transition: all .3s;
+    svg {
+        margin-left: 1.5rem;
+    }
+    &--primary {
+        background-color: white;
+        color: black;
+        &:hover {
+            background-color: rgb(230, 230, 230);
+            transition: all .3s;
+        }
+    }
+    &--secondary {
+        background-color: black;
+        color: white;
+        &:hover {
+            background-color: rgb(20, 20, 20);
+            transition: all .3s;
+        }
+    }
+}
+
 // PADDING
 
 .pt-1 {
