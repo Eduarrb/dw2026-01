@@ -35,6 +35,7 @@ a {
 }
 .btn svg {
   margin-left: 1.5rem;
+  width: 1.5rem;
 }
 .btn--primary {
   background-color: white;
@@ -51,6 +52,46 @@ a {
 .btn--secondary:hover {
   background-color: rgb(20, 20, 20);
   transition: all 0.3s;
+}
+
+.blockHeader__box p {
+  color: rgb(163, 163, 163);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+.blockHeader__box h2 {
+  color: rgb(10, 10, 10);
+  font-size: 3.6rem;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.blockHeader__box a {
+  color: rgb(82, 82, 82);
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.blockHeader__box a svg {
+  width: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
 }
 
 .pt-1 {
@@ -456,9 +497,6 @@ a {
   color: rgba(255, 255, 255, 0.8);
   font-weight: 300;
 }
-.header__contenedor--link svg {
-  width: 1.5rem;
-}
 
 .servicios {
   border-bottom: 1px solid rgba(23, 23, 23, 0.1);
@@ -468,7 +506,6 @@ a {
   flex-wrap: wrap;
 }
 .servicios__contenedor__item {
-  padding: 0 0.5rem;
   width: 33.3333333333%;
   display: flex;
   justify-content: center;
@@ -490,6 +527,43 @@ a {
 .servicios__contenedor__item--text p {
   font-size: 1.3rem;
   color: rgba(23, 23, 23, 0.5);
+}
+
+.homeCategorias__contenedor__box {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+}
+.homeCategorias__contenedor__box--item {
+  width: calc(33.3333333333% - 1rem);
+  height: 35rem;
+  position: relative;
+  overflow: hidden;
+}
+.homeCategorias__contenedor__box--item:hover img {
+  transform: scale(1.1);
+  transition: all 0.8s;
+}
+.homeCategorias__contenedor__box--item img {
+  transition: all 0.8s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.homeCategorias__contenedor__box--item h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  color: rgb(229, 229, 229);
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=estilos.css.map */
