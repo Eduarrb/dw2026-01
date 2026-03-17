@@ -1,0 +1,122 @@
+.productos {
+    background-color: rgb(250, 250, 250);
+    &__contenedor {
+        &__box {
+            gap: 2rem;
+            flex-wrap: wrap;
+            &__item {
+                width: calc(25% - 1.5rem);
+                border-radius: 1.5rem;
+                overflow: hidden;
+                transition: all .5s;
+                &:hover {
+                    box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .15);
+                    transition: all .5s;
+                    .productos__contenedor__box__item__top {
+                        img {
+                            transform: scale(1.05);
+                            transition: all .3s;
+                        }
+                        div {
+                            opacity: 1;
+                            transition: all .3s;
+                        }
+                        a {
+                            bottom: 1.3rem;
+                            transition: all .3s;
+                        }
+                    }
+                }
+                &__top {
+                    height: 38rem;
+                    position: relative;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                        transition: all .3s;
+                    }
+                    div, span, a {
+                        position: absolute;
+                    }
+                    div {
+                        background-color: rgba(black, .3);
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        transition: all .3s;
+                    }
+                    span {
+                        font-size: 1.2rem;
+                        color: white;
+                        background-color: black;
+                        text-transform: uppercase;
+                        font-weight: 300;
+                        padding: .5rem 1rem;
+                        border-radius: .7rem;
+                        top: 1.3rem;
+                        left: 1.3rem;
+                    }
+                    a {
+                        display: flex;
+                        align-items: center;
+                        background-color: black;
+                        color: white;
+                        // bottom: 1.3rem;
+                        bottom: -5rem;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        font-size: 1.2rem;
+                        text-transform: uppercase;
+                        padding: 1rem 2rem;
+                        transition: all .3s;
+                        svg {
+                            width: 1.7rem;
+                            margin-right: 1.5rem;
+                        }
+                    }
+                }
+                &__buttom {
+                    background-color: white;
+                    padding: 2rem;
+                    h4 {
+                        color: rgb(163, 163, 163);
+                        font-size: 1.2rem;
+                        text-transform: uppercase;
+                        font-weight: 300;
+                        letter-spacing: .1rem;
+                    }
+                    p {
+                        color: rgb(23, 23, 23);
+                        font-size: 1.4rem;
+                        font-weight: 300;
+                        text-transform: capitalize;
+                        letter-spacing: .1rem;
+                        margin-top: 1rem;
+                    }
+                    &--precio {
+                        font-size: 1.6rem;
+                        color: rgb(23, 23, 23);
+                        font-weight: 300;
+                        margin-top: 1.5rem;
+                        display: inline-block;
+                    }
+                    &__tallas {
+                        display: flex;
+                        gap: .5rem;
+                        margin-top: 1.5rem;
+                        span {
+                            border: .1rem solid rgb(229, 229, 229);
+                            color: rgb(163, 163, 163);
+                            padding: .3rem .8rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
