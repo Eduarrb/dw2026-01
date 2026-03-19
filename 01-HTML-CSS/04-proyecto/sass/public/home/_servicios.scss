@@ -1,20 +1,19 @@
+@use '../../base/variables' as v;
 .servicios {
     border-bottom: 1px solid rgba(23,23,23,.1);
     &__contenedor {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 5rem;
         &__item {
-            // background-color: peru;
-            // border: 3px solid red;
-            // padding: 0 0.5rem;
-            // box-sizing: border-box;
-            // width: 40rem;
-            // width: 38.4rem;
-            // width: calc(100% / 3 - 1.6rem);
             width: calc(100% / 3);
             display: flex;
             justify-content: center;
             align-items: center;
+            @media only screen and (max-width: v.$bp-small) {
+                width: 50%;
+            }
             &--icon {
                 margin-right: 2rem;
                 color: rgb(163, 163, 163);

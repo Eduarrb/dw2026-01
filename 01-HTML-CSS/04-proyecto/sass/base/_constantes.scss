@@ -7,6 +7,19 @@
     @media only screen and (max-width: v.$bp-extraLarge){
         max-width: 96rem;
     }
+    @media only screen and (max-width: v.$bp-large){
+        max-width: 72rem;
+    }
+    @media only screen and (max-width: v.$bp-medium){
+        max-width: 54rem;
+    }
+    @media only screen and (max-width: v.$bp-small) {
+        max-width: 36rem;
+    }
+    @media only screen and (max-width: v.$bp-extraSmall) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
 
 .btn {
