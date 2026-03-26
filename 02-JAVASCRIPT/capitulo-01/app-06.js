@@ -32,7 +32,7 @@ const usuario = {
         console.log('iniciando sesion');
         console.log(this)
     }
-    // A LA PALABRA RESERVADA "THIS" -> hace referencia al objeto en el que se encuentra o ejecuta
+    // LA PALABRA RESERVADA "THIS" -> hace referencia al objeto en el que se encuentra o ejecuta
 }
 
 // usuario.iniciarSesion();
