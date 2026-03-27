@@ -1,12 +1,22 @@
+@use '../../base/variables' as v;
 .footer {
-    background-color: black;
+    background-color: rgb(10, 10, 10);
     &__contenedor {
         &__data {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             column-gap: 3rem;
+            row-gap: 5rem;
+            border-bottom: .1rem solid rgb(38, 38, 38);
             article {
                 width: calc(25% - 9rem / 4);
+                @media only screen and (max-width: v.$bp-large) {
+                    width: calc(50% - 1.5rem);
+                }
+                @media only screen and (max-width: v.$bp-small) {
+                    width: 100%;
+                }
                 h3 {
                     font-weight: 200;
                     color: white;
@@ -62,6 +72,16 @@
                             transition: all .3s;
                         }
                     }
+                }
+            }
+        }
+        &__copyright {
+            p {
+                color: rgb(163, 163, 163);
+                font-size: 1.2rem;
+                &:not(:last-child) {
+                    margin-bottom: .5rem;
+                    text-transform: uppercase;
                 }
             }
         }

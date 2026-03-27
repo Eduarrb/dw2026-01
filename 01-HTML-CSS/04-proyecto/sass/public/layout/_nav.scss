@@ -1,6 +1,7 @@
 @use '../../base/variables' as v;
 .nav {
     position: fixed;
+    top: 0;
     background-color: rgba(white, .97);
     width: 100%;
     border-bottom: 1px solid rgba(black,.08);
