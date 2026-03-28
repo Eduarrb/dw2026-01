@@ -18,3 +18,11 @@ passInput.addEventListener('input', function(){
         this.classList.remove('alert');
     }
 });
+
+icon.addEventListener('mousedown', function(){
+    passInput.setAttribute('type', 'text');
+});
+
+icon.addEventListener('mouseup', function(){
+    passInput.setAttribute('type', 'password');
+});

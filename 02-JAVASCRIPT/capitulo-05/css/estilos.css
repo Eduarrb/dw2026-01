@@ -1,0 +1,99 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    background-color: #0e0e0e;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.card {
+    width: 400px;
+    height: 60%;
+    background-color: #dc0830;
+    border-radius: 20px;
+    padding: 100px 20px 20px 20px;
+}
+
+.data {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    border: 5px solid #4d4d4d;
+    h2 {
+        text-align: center;
+        padding: 10px 0;
+    }
+    .caja {
+        display: flex;
+        gap: 20px;
+        padding: 10px 0;
+        .pokeImagen {
+            width: 30%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                display: block;
+                width: 200%;
+            }
+        }
+        .pokeData {
+            padding: 10px;
+            width: 70%;
+        }
+    }
+}
+
+.relleno {
+    background-color: #4c9df8;
+    height: 50px;
+    margin-top: 30px;
+    border-radius: 50px;
+    border: 1px solid #0859b6;
+}
+
+form {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    input[type=submit] {
+        border: none;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        background-color: #1abc9c;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 900;
+        cursor: pointer;
+        &:hover {
+            background-color: #16a085;
+            transition: all .3s;
+            box-shadow: 0 0 10px #116b59;
+        }
+    }
+    input[type=text] {
+        width: calc(100% - 75px - 10px);
+        background-color: #f39c12;
+        border: none;
+        font-size: 20px;
+        padding: 10px 20px;
+        outline: 0;
+        border-radius: 50px;
+    }
+}

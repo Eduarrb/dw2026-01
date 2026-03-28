@@ -1,0 +1,21 @@
+{
+    "eduardo": {
+        "nombre": "Eduardo",
+        "apellido": "García",
+        "edad": 30,
+        "email": "eduardo@gmail.com"
+    },
+    "maria": {
+        "nombre": "María",
+        "apellido": "López",
+        "edad": 25,
+        "email": "maria@gmail.com",
+        "telefono": "555-1234"
+    },
+    "juan": {
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "edad": 28,
+        "email": "juan@gmail.com"
+    }
+}
