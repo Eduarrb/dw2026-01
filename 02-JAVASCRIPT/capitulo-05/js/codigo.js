@@ -19,8 +19,9 @@ const obtenerJson = async (nombrePokemon) => {
 const form = document.querySelector('form');
 const pokemonInput = document.querySelector('input[type="text"]');
 const pokeData = document.querySelector('.pokeData');
-const poekImg = document.querySelector('.pokeImagen');
-const poekNombre = document.querySelector('.data h2');
+const pokeImg = document.querySelector('.pokeImagen');
+const pokeNombre = document.querySelector('.data h2');
+const alerta = document.querySelector('.relleno');
 
 // 👀
 /*
@@ -31,8 +32,12 @@ const poekNombre = document.querySelector('.data h2');
 form.addEventListener('submit', async e => {
     e.preventDefault();
     const nombrePokemon = pokemonInput.value;
+    if(!nombrePokemon) {
+        alerta.textContent = 'Por favor ingresa un nombre de pokemon';
+        return;
+    }
+    alerta.textContent = '';
     const pokemon = await obtenerJson(nombrePokemon);
-    console.log(pokemon);
     const plantilla = `
         <ul>
             <li><strong>HP:</strong> ${pokemon.stats[0].base_stat}</li>
@@ -45,7 +50,7 @@ form.addEventListener('submit', async e => {
     `;
 
     pokeData.innerHTML = plantilla;
-    poekImg.innerHTML = `<img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">`;
-
-
+    pokeImg.innerHTML = `<img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">`;
+    pokeNombre.textContent = pokemon.name.toUpperCase();
+    pokemonInput.value = '';
 });

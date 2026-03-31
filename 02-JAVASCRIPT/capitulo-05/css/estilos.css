@@ -64,6 +64,8 @@ body {
     margin-top: 30px;
     border-radius: 50px;
     border: 1px solid #0859b6;
+    text-align: center;
+    line-height: 50px;
 }
 
 form {
