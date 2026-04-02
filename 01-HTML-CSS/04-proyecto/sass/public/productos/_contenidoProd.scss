@@ -30,5 +30,21 @@
             }
             
         }
+        &__filtrosTags {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1rem;
+            span {
+                font-size: 1.4rem;
+                color: rgb(10, 10, 10);
+                background-color: rgb(245, 245, 245);
+                padding: .8rem 1.5rem;
+                cursor: pointer;
+                i {
+                    font-size: 1rem;
+                    margin-left: .5rem;
+                }
+            }
+        }
     }
 }
