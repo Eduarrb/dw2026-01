@@ -85,3 +85,8 @@ INSERT INTO personajes (per_peli_id, per_act_id, per_nombre) VALUES
     (5, 18, "Jules Winnfield"),
     (5, 19, "Mia Wallace"),
     (5, 20, "Butch Coolidge")
+
+SELECT * FROM peliculas, personajes WHERE peli_id = per_peli_id
+
+SELECT * FROM actores, personajes WHERE act_id = per_act_id
+

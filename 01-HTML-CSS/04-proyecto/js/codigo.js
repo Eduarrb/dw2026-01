@@ -33,11 +33,22 @@ inputSelects.forEach((input) => {
             });
 			e.target.innerHTML += '<i class="fa-solid fa-check"></i>';
             e.target.parentElement.parentElement.firstElementChild.innerHTML = `${e.target.textContent} <i class="fa-solid fa-angle-down"></i>`;
-			filtrosTag.firstChild.remove();
-			const span = document.createElement('span');
-			span.innerHTML = e.target.textContent + ' <i class="fa-solid fa-x"></i>';
-			filtrosTag.prepend(span);
-            ul.classList.remove('active');
+			if(e.target.parentElement.parentElement.classList.contains('contenidoProd__contenedor__form__todos')) {
+				if(e.target.textContent === 'Todas') {
+					if(filtrosTag.firstChild) {
+						filtrosTag.firstChild.remove();
+					}
+				}
+				else {
+					if(filtrosTag.firstChild) {
+						filtrosTag.firstChild.remove();
+					}	
+					const span = document.createElement('span');
+					span.innerHTML = e.target.textContent + ' <i class="fa-solid fa-x"></i>';
+					filtrosTag.prepend(span);
+					ul.classList.remove('active');
+				}
+			}
 		}
 	});
 });
