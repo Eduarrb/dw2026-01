@@ -46,5 +46,11 @@
                 }
             }
         }
+        &__productos {
+            &--cantidad {
+                font-size: 1.4rem;
+                color: rgb(163, 163, 163);
+            }
+        }
     }
 }
