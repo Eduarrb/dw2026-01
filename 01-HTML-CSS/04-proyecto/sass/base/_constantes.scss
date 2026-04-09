@@ -173,6 +173,53 @@
 	}
 }
 
+.inputSelect_cart {
+	width: calc(45% / 2 - 4rem / 2);
+	position: relative;
+	div {
+		color: rgb(10, 10, 10);
+		font-size: 1.4rem;
+		border: 0.1rem solid rgb(229, 229, 229);
+		padding: 0.8rem 1rem;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	ul {
+		position: absolute;
+		background-color: white;
+		left: 0;
+		list-style: none;
+		width: 100%;
+		border: 0.1rem solid rgb(229, 229, 229);
+		border-radius: 0.3rem;
+		top: 3rem;
+		padding: 0.5rem;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.2s;
+		li {
+			font-size: 1.4rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0.8rem;
+			border-radius: 0.3rem;
+			&:hover {
+				background-color: rgb(240, 240, 240);
+				cursor: context-menu;
+			}
+		}
+		&.active {
+			opacity: 1;
+			visibility: visible;
+			transition: all 0.2s;
+			top: 4rem;
+		}
+	}
+}
+
 .text-center {
 	text-align: center;
 }
