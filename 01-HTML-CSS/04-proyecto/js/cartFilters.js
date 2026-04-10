@@ -1,15 +1,4 @@
-const circle = document.querySelector('.nav__contenedor__menuIcon__circle');
-const menu = document.querySelector('.nav__contenedor__menu');
-const menuIcon = document.querySelector('.nav__contenedor__menuIcon');
-const filtrosTag = document.querySelector('.contenidoProd__contenedor__filtrosTags');
-const inputSearch = document.querySelector('.contenidoProd__contenedor__form__inputSearch input');
-
-menuIcon.addEventListener('click', () => {
-	menu.classList.toggle('active');
-	circle.classList.toggle('active');
-});
-
-const inputSelects = document.querySelectorAll('.inputSelect');
+const inputSelects = document.querySelectorAll('.inputSelect_cart');
 
 inputSelects.forEach((input) => {
 	const div = input.querySelector('div');
@@ -52,28 +41,3 @@ inputSelects.forEach((input) => {
 		}
 	});
 });
-
-inputSearch.addEventListener('input', () => {
-	const value = inputSearch.value.trim();
-	if (!filtrosTag.querySelector('.inputTag')) {
-		const span = document.createElement('span');
-		span.classList.add('inputTag');
-		span.innerHTML = value + ' <i class="fa-solid fa-x"></i>';
-		filtrosTag.append(span);
-	} else {
-		if (value === '') {
-			filtrosTag.querySelector('.inputTag').remove();
-			return;
-		} {
-			const tag = filtrosTag.querySelector('.inputTag');
-			tag.innerHTML = value + ' <i class="fa-solid fa-x"></i>';
-		}
-	}
-});
-
-filtrosTag.addEventListener('click', (e) => {
-	console.log(e)
-	if(e.target.tagName === 'SPAN') {
-		e.target.remove();
-	}
-})

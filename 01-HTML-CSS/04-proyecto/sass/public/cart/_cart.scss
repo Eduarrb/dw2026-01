@@ -1,5 +1,6 @@
 .cart {
     margin-top: 9.5rem;
+    padding-bottom: 9.5rem;
     &__contenedor {
         &__header {
             font-size: 3rem;
@@ -15,7 +16,7 @@
         &__box {
             display: grid;
             grid-template-columns: 3fr 1fr;
-            gap: 5rem;
+            gap: 3rem;
             &__producto {
                 display: grid;
                 grid-template-columns: 5fr 1fr;
@@ -46,8 +47,30 @@
                             margin-top: .5rem;
                         }
                         &__selects {
+                            margin-top: 1.5rem;
                             display: flex;
                             gap: 1rem;
+                        }
+                        &__canti {
+                            border: 1px solid rgb(229, 229, 229);
+                            width: 12rem;
+                            margin-top: 1.5rem;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 1fr;
+                            span {
+                                font-size: 1.4rem;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding-top: .8rem;
+                                padding-bottom: .8rem;
+                            }
+                            .menos, .mas {
+                                cursor: pointer;
+                                &:hover {
+                                    background-color: rgb(250, 250, 250);
+                                }
+                            }
                         }
                     }
                 }
