@@ -1,0 +1,50 @@
+.header {
+    background: linear-gradient(90deg,rgba(0, 0, 0, 0.52) 0%, rgba(255, 255, 255, 0.05) 50%), url("../img/portada.webp");
+    // background-image: url("../img/portada.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    // padding-top: 20rem;
+    // padding-bottom: 20rem;
+    // height: calc(100vh - 9.4rem);
+    height: 100vh;
+    &__contenedor {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        // align-items: center;
+        justify-content: center;
+        align-items: flex-start;
+        &--textTop {
+            color: white;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4rem;
+        }
+        &--title {
+            font-size: 7.2rem;
+            font-weight: 400;
+            span {
+                display: block;
+                color: white;
+                // &:first-child {
+
+                // }
+                // &:last-child {
+
+                // }
+                &:nth-child(1){
+                    font-weight: 200;
+                }
+                &:nth-child(2){
+                    font-style: italic;
+                }
+            }
+        }
+        &--descri {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+        }
+    }
+}

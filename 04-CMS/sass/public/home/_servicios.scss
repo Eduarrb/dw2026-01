@@ -1,0 +1,38 @@
+@use '../../base/variables' as v;
+.servicios {
+    border-bottom: 1px solid rgba(23,23,23,.1);
+    &__contenedor {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 5rem;
+        &__item {
+            width: calc(100% / 3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @media only screen and (max-width: v.$bp-small) {
+                width: 50%;
+            }
+            &--icon {
+                margin-right: 2rem;
+                color: rgb(163, 163, 163);
+                svg {
+                    width: 2.5rem;
+                }
+            }
+            &--text {
+                h3 {
+                    font-size: 1.5rem;
+                    text-transform: capitalize;
+                    font-weight: 300;
+                    margin-bottom: .5rem;
+                }
+                p {
+                    font-size: 1.3rem;
+                    color: rgba(23,23,23,0.5);
+                }
+            }
+        }
+    }
+}

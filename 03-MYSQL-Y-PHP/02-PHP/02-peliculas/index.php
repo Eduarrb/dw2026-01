@@ -11,7 +11,7 @@
     <section class="container">
         <div class="row py-4">
             <a href="agregar.php" class="btn btn-success mr-1">Agregar Película</a>
-            <a href="#" class="btn btn-info">Directores</a>
+            <a href="directores.php" class="btn btn-info">Directores</a>
         </div>
         <?php include 'db.php'; ?>
         <pre>
@@ -24,7 +24,7 @@
         <div class="row">
             <?php while($fila = mysqli_fetch_assoc($respuesta)) : ?>
                 <article class="col-md-3 mb-4">
-                    <img src="https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_.jpg" alt="Matrix" style="width: 100%;">
+                    <img src="<?php echo $fila['peli_imagen']; ?>" alt="<?php echo $fila['peli_nombre']; ?>" style="width: 100%;">
                     <h4><?php echo $fila['peli_nombre']; ?></h4>
                     <div>
                         <strong>Director:</strong> <?php echo $fila['dire_nombres'] . " " . $fila['dire_apellidos']; ?>
@@ -36,8 +36,8 @@
                         <strong>Rating:</strong> <?php echo $fila['peli_restricciones']; ?>
                     </div>
                     <div>
-                        <a href="#" class="btn btn-warning">editar</a>
-                        <a href="#" class="btn btn-danger">eliminar</a>
+                        <a href="editar.php?id=<?php echo $fila['peli_id']; ?>" class="btn btn-warning">editar</a>
+                        <a href="eliminar.php?id=<?php echo $fila['peli_id']; ?>" class="btn btn-danger">eliminar</a>
                     </div>
                 </article>
             <?php endwhile; ?>

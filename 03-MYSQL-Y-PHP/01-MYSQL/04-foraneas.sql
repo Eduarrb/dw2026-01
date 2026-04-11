@@ -60,3 +60,5 @@ ALTER TABLE peliculas
     ON DELETE CASCADE ON UPDATE CASCADE
 
 DELETE FROM directores WHERE dire_id = 7
+
+ALTER TABLE peliculas ADD COLUMN peli_imagen TEXT AFTER peli_nombre
