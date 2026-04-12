@@ -1,4 +1,5 @@
 const inputSelects = document.querySelectorAll('.inputSelect_cart');
+const cartCantiItem = document.querySelectorAll('.cart__contenedor__box__producto__item');
 
 inputSelects.forEach((input) => {
 	const div = input.querySelector('div');
@@ -41,3 +42,17 @@ inputSelects.forEach((input) => {
 		}
 	});
 });
+
+cartCantiItem.forEach((item) => {
+	const cartCantiBox = item.querySelector('.cart__contenedor__box__producto__item__data__col__canti');
+	const cartCantiNum = item.querySelector('.cart__contenedor__box__producto__item__data__col__canti .num');
+
+	cartCantiBox.addEventListener('click', e => {
+		if(e.target.classList.contains('menos') || e.target.classList.contains('fa-solid') && e.target.classList.contains('fa-minus')){
+			if(cartCantiNum.textContent > 1) cartCantiNum.textContent--;
+		}
+		if(e.target.classList.contains('mas') || e.target.classList.contains('fa-solid') && e.target.classList.contains('fa-plus')){
+			cartCantiNum.textContent++;
+		}
+	})
+})

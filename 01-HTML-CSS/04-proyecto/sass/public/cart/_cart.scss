@@ -1,3 +1,4 @@
+@use '../../base/variables' as v;
 .cart {
     margin-top: 9.5rem;
     padding-bottom: 9.5rem;
@@ -16,62 +17,146 @@
         &__box {
             display: grid;
             grid-template-columns: 3fr 1fr;
-            gap: 3rem;
+            gap: 5rem;
+            align-items: start;
+            @media only screen and (max-width: v.$bp-large) {
+                grid-template-columns: 1fr;
+            }
             &__producto {
-                display: grid;
-                grid-template-columns: 5fr 1fr;
-                &__data {
-                    display: flex;
-                    gap: 3rem;
-                    &__imgBox {
-                        width: 11rem;
-                        height: 14rem;
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-                    }
-                    &__col {
-                        width: 100%;
-                        &--nombre {
-                            font-size: 1.2rem;
-                            color: rgb(163, 163, 163);
-                            text-transform: uppercase;
-                            letter-spacing: .1rem;
-                        }
-                        &--descri {
-                            font-size: 1.8rem;
-                            color: rgb(10, 10, 10);
-                            font-weight: 300;
-                            margin-top: .5rem;
-                        }
-                        &__selects {
-                            margin-top: 1.5rem;
-                            display: flex;
-                            gap: 1rem;
-                        }
-                        &__canti {
-                            border: 1px solid rgb(229, 229, 229);
-                            width: 12rem;
-                            margin-top: 1.5rem;
-                            display: grid;
-                            grid-template-columns: 1fr 1fr 1fr;
-                            span {
-                                font-size: 1.4rem;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                padding-top: .8rem;
-                                padding-bottom: .8rem;
+                &__item {
+                    display: grid;
+                    grid-template-columns: 5fr 1fr;
+                    border-bottom: .1rem solid rgb(240, 240, 240);
+                    padding-bottom: 3rem;
+                    padding-top: 3rem;
+                    &__data {
+                        display: flex;
+                        gap: 3rem;
+                        &__imgBox {
+                            width: 11rem;
+                            height: 14rem;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
                             }
-                            .menos, .mas {
-                                cursor: pointer;
-                                &:hover {
-                                    background-color: rgb(250, 250, 250);
+                        }
+                        &__col {
+                            width: 100%;
+                            &--nombre {
+                                font-size: 1.2rem;
+                                color: rgb(163, 163, 163);
+                                text-transform: uppercase;
+                                letter-spacing: .1rem;
+                            }
+                            &--descri {
+                                font-size: 1.8rem;
+                                color: rgb(10, 10, 10);
+                                font-weight: 300;
+                                margin-top: .5rem;
+                            }
+                            &__selects {
+                                margin-top: 1.5rem;
+                                display: flex;
+                                gap: 1rem;
+                                flex-wrap: wrap;
+                            }
+                            &__canti {
+                                border: 1px solid rgb(229, 229, 229);
+                                width: 12rem;
+                                margin-top: 1.5rem;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr;
+                                span {
+                                    font-size: 1.4rem;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    padding-top: .8rem;
+                                    padding-bottom: .8rem;
+                                }
+                                .menos, .mas {
+                                    cursor: pointer;
+                                    &:hover {
+                                        background-color: rgb(250, 250, 250);
+                                    }
                                 }
                             }
                         }
+                    }
+                    &__actions {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        padding-top: 1rem;
+                        padding-bottom: 1rem;
+                        align-items: flex-end;
+                        .close {
+                            color: rgb(163, 163, 163);
+                            font-size: 1.6rem;
+                            cursor: pointer;
+                            &:hover {
+                                color: rgb(10, 10, 10);
+                            }
+                        }
+                        .subTotal {
+                            font-size: 1.8rem;
+                            color: rgb(10, 10, 10);
+                            font-weight: 300;
+                        }
+                    }
+
+                }
+            }
+            &__resumen {
+                background-color: rgb(250, 250, 250);
+                padding: 3rem 2rem;
+                &--title {
+                    color: rgb(10, 10, 10);
+                    font-size: 1.8rem;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    margin-bottom: 3rem;
+                }
+                &__subtotal,
+                &__envio,
+                &__total {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                &__subtotal,
+                &__envio {
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                    span{ 
+                        font-size: 1.4rem;
+                    }
+                    span:first-child {
+                        color: rgb(115, 115, 115);
+                    }
+                    span:last-child {
+                        color: rgb(10, 10, 10);
+                    }
+                }
+                hr {
+                    margin-top: 2rem;
+                    margin-bottom: 2rem;
+                    border: none;
+                    border-top: .1rem solid rgb(229, 229, 229);
+                }
+                &__total {
+                    margin-bottom: 3rem;
+                    span {
+                        font-size: 1.8rem;
+                        font-weight: 300;
+                        color: rgb(10, 10, 10);
+                    }
+                }
+                &__form {
+                    .btn {
+                        width: 100%;
+                        text-align: center;
+                        display: block;
                     }
                 }
             }
