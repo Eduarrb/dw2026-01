@@ -1,0 +1,111 @@
+@use '../base/variables' as v;
+.contenido {
+    padding: 4rem 3rem;
+    background-color: #fafafa;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
+        h1 {
+            font-size: 3.2rem;
+            color: rgb(10, 10, 10);
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        p {
+            color: rgb(115, 115, 115);
+            font-size: 1.6rem;
+            font-weight: 300;
+        }
+    }
+
+    &__cards{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
+        &__item {
+            background-color: white;
+            border: .1rem solid rgb(230, 230, 230);
+            border-radius: 1rem;
+            padding: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &:nth-child(1) {
+                .contenido__cards__item__iconBox {
+                    background-color: v.$color-azulClaro;
+                }
+                i {
+                    color: v.$color-azul;
+                }
+            }
+            &:nth-child(2) {
+                .contenido__cards__item__iconBox {
+                    background-color: v.$color-verdeClaro;
+                }
+                i {
+                    color: v.$color-verde;
+                }
+            }
+            &:nth-child(3) {
+                .contenido__cards__item__iconBox {
+                    background-color: v.$color-moradoClaro;
+                }
+                i {
+                    color: v.$color-morado;
+                }
+            }
+            &:nth-child(4) {
+                .contenido__cards__item__iconBox {
+                    background-color: v.$color-rojoClaro;
+                }
+                i {
+                    color: v.$color-rojo;
+                }
+            }
+            &:nth-child(1) {
+                .contenido__cards__item__iconBox {
+                    background-color: v.$color-azulClaro;
+                }
+                i {
+                    color: v.$color-azul;
+                }
+            }
+            &:nth-child(1) {
+                .contenido__cards__item__iconBox {
+                    background-color: v.$color-azulClaro;
+                }
+                i {
+                    color: v.$color-azul;
+                }
+            }
+            &__data {
+                h2 {
+                    font-size: 1.6rem;
+                    color: rgb(115, 115, 115);
+                    font-weight: 400;
+                }
+                p {
+                    color: rgb(10, 10, 10);
+                    margin-top: 1rem;
+                    font-size: 3rem;
+                    font-weight: 300;
+                }
+            }
+            
+            &__iconBox {
+                width: 5rem;
+                height: 5rem;
+                border-radius: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgb(230, 230, 230)    ;
+                i {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}

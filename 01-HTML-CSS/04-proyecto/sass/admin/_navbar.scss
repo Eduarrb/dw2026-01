@@ -1,0 +1,54 @@
+.navbar {
+    background-color: rgb(10, 10, 10);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    &__top {
+        padding: 3rem;
+        border-bottom: .1rem solid rgb(50, 50, 50);
+        h2 {
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: .3rem;
+        }
+        p {
+            font-size: 1.4rem;
+            color: rgb(115, 115, 115);
+            text-transform: capitalize;
+            margin-top: 1rem;
+        }
+    }
+    &__menu {
+        padding: 3rem 1rem;
+        &__link {
+            display: block;
+            color: rgb(163, 163, 163);
+            font-size: 1.6rem;
+            font-weight: 300;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            &:hover {
+                background-color: rgb(38, 38, 38);
+            }
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+            i {
+                margin-right: 1.5rem;
+            }
+        }
+    }
+    &__bottom {
+        margin-top: auto;
+        padding: 3rem;
+        a {
+            font-size: 1.6rem;
+            color: rgb(163, 163, 163);
+            i {
+                margin-right: 1.5rem;
+            }
+        }
+    }
+}

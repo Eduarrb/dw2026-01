@@ -1,0 +1,8 @@
+@forward 'navbar';
+
+@forward 'contenido';
+
+.main {
+    display: grid;
+    grid-template-columns: 12% 1fr;
+}
