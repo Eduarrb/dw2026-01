@@ -1,6 +1,10 @@
+@use '../../base/variables' as v;
 .headerTop {
     background-color: rgb(250, 250, 250);
     margin-top: 9.5rem;
+    @media only screen and (max-width: v.$bp-medium ) {
+        margin-top: 6.6rem;
+    }
     &__contenedor {
         text-align: center;
         p {

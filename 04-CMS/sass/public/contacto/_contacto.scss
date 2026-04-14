@@ -1,0 +1,77 @@
+@use '../../base/variables' as v;
+
+.contacto {
+    &__contenedor {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: start;
+        gap: 5rem;
+        @media only screen and (max-width: v.$bp-large) {
+            grid-template-columns: 1fr;
+        }
+        &__col {
+            h2 {
+                font-size: 2.4rem;
+                color: rgb(10, 10, 10);
+                font-weight: 300;
+            }
+            p{
+                font-size: 1.4rem;
+                color: rgb(115, 115, 115);
+                margin-top: 3rem;
+                line-height: 2.4rem;
+                font-weight: 300;
+            }
+            &__data {
+                display: flex;
+                margin-bottom: 2rem;
+                gap: 1.5rem;
+                &__iconBox {
+                    background-color: rgb(245, 245, 245);
+                    width: 4rem;
+                    height: 4rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    i {
+                        font-size: 1.8rem;
+                    }
+                }
+                &__info {
+                    display: flex;
+                    flex-direction: column;
+                    span:first-child {
+                        font-size: 1.2rem;
+                        color: rgb(163, 163, 163);
+                        text-transform: uppercase;
+                        margin-bottom: 1rem;
+                    }
+                    span:last-child {
+                        font-size: 1.6rem;
+                        color: rgb(23, 23, 23);
+                        font-weight: 300;
+                    }
+                }
+            }
+            &__horarios {
+                display: flex;
+                justify-content: space-between;
+                &:not(:last-child) {
+                    margin-bottom: 1rem;
+                }
+                span:first-child {
+                    color: rgb(115, 115, 115);
+                    font-size: 1.4rem;
+                }
+                span:last-child {
+                    color: rgb(23, 23, 23);
+                    font-size: 1.4rem;
+                }
+            }
+            &:last-child {
+                background-color: rgb(250, 250, 250);
+                padding: 4rem 5rem;
+            }
+        }
+    }
+}
