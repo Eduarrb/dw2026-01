@@ -4,10 +4,6 @@
 
 	<?php include VIEW_LAND . DS . 'nav.php'; ?>
 
-		<?php  ?>
-
-		<?php $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); ?>
-
 		<?php 
 			if ($url == '/' || $url == '/index.php') {
 				include VIEW_LAND . DS . 'headerLand.php';
@@ -19,6 +15,15 @@
 			if($url == '/productos') {
 				include VIEW_LAND . DS . 'productos' . DS . 'header.php';
 				include VIEW_LAND . DS . 'productos' . DS . 'productos.php';
+			}
+
+			if($url == '/contacto') {
+				include VIEW_LAND . DS . 'contacto' . DS . 'header.php';
+				include VIEW_LAND . DS . 'contacto' . DS . 'contacto.php';
+			}
+
+			if($url == '/cart') {
+				include VIEW_LAND . DS . 'cart' . DS . 'cart.php';
 			}
 		?>
 

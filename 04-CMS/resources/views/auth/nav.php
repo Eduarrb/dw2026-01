@@ -6,11 +6,11 @@
             </svg>
             <div class="nav__contenedor__menuIcon__circle"></div>
         </div>
-        <a href="./" class="nav__contenedor--logo">vogue</a>
+        <a href="#" class="nav__contenedor--logo">vogue</a>
         <div class="nav__contenedor__menu">
-            <a href="./" class="nav__contenedor__menu--link">inicio</a>
-            <a href="./productos" class="nav__contenedor__menu--link">productos</a>
-            <a href="./contacto" class="nav__contenedor__menu--link">contacto</a>
+            <a href="../" class="nav__contenedor__menu--link">inicio</a>
+            <a href="../productos" class="nav__contenedor__menu--link">productos</a>
+            <a href="../contacto" class="nav__contenedor__menu--link">contacto</a>
         </div>
         <div class="nav__contenedor__menuUser">
             <a href="#" class="nav__contenedor__menuUser--link saludo">Hola, Eduardo</a>
