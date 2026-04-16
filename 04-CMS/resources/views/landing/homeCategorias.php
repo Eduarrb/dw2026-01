@@ -10,17 +10,14 @@
             <a href="#" class="homeCategorias__contenedor__box--item">
                 <img src="img/categorias/01.webp" alt="Categoria 1" />
                 <h3>camisetas</h3>
-                <!-- capa 2 -->
             </a>
             <a href="#" class="homeCategorias__contenedor__box--item">
                 <img src="img/categorias/03.webp" alt="Categoria 2" />
                 <h3>pantalones</h3>
-                <!-- capa 2 -->
             </a>
             <a href="#" class="homeCategorias__contenedor__box--item">
                 <img src="img/categorias/02.webp" alt="Categoria 3" />
                 <h3>accesorios</h3>
-                <!-- capa 2 -->
             </a>
         </div>
     </div>
