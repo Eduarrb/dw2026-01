@@ -1,6 +1,6 @@
 <?php require_once '../resources/config.php'; ?>
 
-<?php include VIEW_LAND . DS . 'head.php'; ?>
+<?php include VIEW_LAYOUT . DS . 'head.php'; ?>
 
 	<?php include VIEW_LAND . DS . 'nav.php'; ?>
 
@@ -28,5 +28,3 @@
 		?>
 
 		<?php include VIEW_LAND . DS . 'footer.php'; ?>
-		
-		

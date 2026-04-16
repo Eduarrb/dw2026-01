@@ -1,6 +1,6 @@
 <?php require_once '../../resources/config.php'; ?>
 
-<?php include VIEW_AUTH . DS . 'head.php'; ?>
+<?php include VIEW_LAYOUT . DS . 'head.php'; ?>
 
     <?php include VIEW_AUTH . DS . 'nav.php'; ?>
 
