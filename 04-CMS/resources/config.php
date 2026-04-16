@@ -1,6 +1,8 @@
 <?php 
     ob_start();
 
+    require_once 'db.php';
+
     defined("DS") ? null : define("DS", DIRECTORY_SEPARATOR);
 
     defined("VIEW_LAYOUT") ? null : define("VIEW_LAYOUT", __DIR__ . DS . "views" . DS . "layout");
@@ -13,5 +15,9 @@
 
     $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
+    $db = conectarDB();
+
     require_once 'utils/util.php';
+
+    require_once 'caller.php';
 ?>
