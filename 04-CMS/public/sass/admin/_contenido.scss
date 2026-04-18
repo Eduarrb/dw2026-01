@@ -2,6 +2,7 @@
 .contenido {
     padding: 4rem 3rem;
     background-color: #fafafa;
+    overflow-y: scroll;
     &__header {
         display: flex;
         justify-content: space-between;
@@ -32,6 +33,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            &:hover {
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            }
             &:nth-child(1) {
                 .contenido__cards__item__iconBox {
                     background-color: v.$color-azulClaro;
@@ -105,6 +109,247 @@
                 i {
                     font-size: 2rem;
                 }
+            }
+        }
+    }
+    &__bottom {
+        margin-top: 4rem;
+        display: grid;
+        grid-template-columns: 5fr 2fr;
+        align-items: start;
+        gap: 3rem;
+        &__grafico, &__pedidos {
+            background-color: white;
+            border: .1rem solid rgb(230, 230, 230);
+            border-radius: 1rem;
+            padding: 3rem;
+        }
+        &__grafico {
+            &__top {
+                display: flex;
+                justify-content: space-between;
+                h2 {
+                    font-size: 2rem;
+                    font-weight: 300;
+                }
+                div {
+                    color: v.$color-verde;
+                    font-size: 2rem;
+                }
+            }
+        }
+        &__pedidos {
+            h2 {
+                font-size: 2rem;
+                font-weight: 300;
+                margin-bottom: 4rem;
+            }
+            &__item {
+                display: flex;
+                justify-content: space-between;
+                &__col {
+                    &__nombre, &__precio {
+                        font-size: 1.6rem;
+                        color: rgb(10, 10, 10);
+                        font-weight: 500;
+                    }
+                    &__fecha {
+                        color: rgb(163, 163, 163);
+                        font-size: 1.4rem;
+                    }
+                    &__pendiente {
+                        font-size: 1.2rem;
+                        background-color: rgb(254, 249, 195);
+                        color: rgb(133, 77, 14);
+                        font-weight: 500;
+                        padding: .5rem 1rem;
+                        border-radius: .5rem;
+                        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+                    }
+                    &:nth-child(2) {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                    }
+                }
+            }
+        }
+    }
+    &__prodSearch {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        &__box {
+            position: relative;
+            i {
+                position: absolute;
+                left: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+                color: rgb(163, 163, 163);
+                font-size: 1.4rem;
+            }
+            input {
+                outline: 0;
+                border: .1rem solid rgb(229, 229, 229);
+                font-size: 1.4rem;
+                padding: 1rem 1rem 1rem 4rem;
+                border-radius: .5rem;
+                width: 100%;
+                &:focus {
+                    border-color: rgb(10, 10, 10);
+                    transition: all 0.2s;
+                }
+            }
+        }
+    }
+    &__table {
+        &__header {
+            display: grid;
+            grid-template-columns: 1fr 4fr 2fr 2fr 2fr 2fr 1fr;
+            border-bottom: .1rem solid rgb(230, 230, 230);
+            padding-bottom: 2rem;
+            div {
+                color: rgb(115, 115, 115);
+                font-size: 1.5rem;
+                font-weight: 500;
+                padding: 1rem;
+            }
+        }
+        &__body {
+            background-color: white;
+            &__item {
+                display: grid;
+                grid-template-columns: 1fr 4fr 2fr 2fr 2fr 2fr 1fr;
+                div {
+                    padding: 1rem;
+                    border-bottom: .1rem solid rgba(0, 0, 0, .1);
+                    img {
+                        width: 100%;
+                    }
+                    h3 {
+                        color: rgb(10, 10, 10);
+                        font-size: 1.5rem;
+                    }
+                    .destacado {
+                        font-size: 1.2rem;
+                        display: inline-block;
+                        background-color: rgb(254, 249, 195);
+                        color: rgb(133, 77, 14);
+                        font-weight: 500;
+                        padding: .5rem 1rem;
+                        border-radius: .5rem;
+                        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+                    }
+                    &:nth-child(3) {
+                        color: rgb(82, 82, 82);
+                        display: flex;
+                        align-items: center;
+                        font-size: 1.5rem;
+                    }
+                    &:nth-child(4) {
+                        color: rgb(10, 10, 10);
+                        display: flex;
+                        align-items: center;
+                        font-size: 1.5rem;
+                        font-weight: 500;
+                    }
+                    &:nth-child(5) {
+                        display: flex;
+                        align-items: center;
+                        span {
+                            border: .1rem solid v.$color-verdeClaro;
+                            color: v.$color-verde;
+                            font-size: 1.5rem;
+                            padding: .5rem 1rem; 
+                            border-radius: .5rem;
+                        }
+                    }
+                    &:nth-child(6) {
+                        display: flex;
+                        align-items: center;
+                        span {
+                            background-color: v.$color-verdeClaro;
+                            color: v.$color-verde;
+                            font-size: 1.5rem;
+                            padding: .5rem 1.5rem; 
+                            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+                            border-radius: .8rem;
+                        }
+                    }
+                    &:nth-child(7) {
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        button {
+                            font-size: 1.6rem;
+                            border: none;
+                            padding: 1rem;
+                            background-color: transparent;
+                            cursor: pointer;
+                            border-radius: 1rem;
+                            &:first-child {
+                                color: v.$color-morado;
+                                &:hover {
+                                    background-color: v.$color-moradoClaro;
+    
+                                }
+                            }
+                            &:last-child {
+                                color: v.$color-rojo;
+                                &:hover {
+                                    background-color: v.$color-rojoClaro;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__mensajes {
+        margin-top: 3rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        &__item {
+            background-color: white;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 2rem;
+            cursor: pointer;
+            &:hover {
+                background-color: rgb(250, 250, 250);
+            }
+            &:not(:last-child) {
+                border-bottom: .1rem solid rgb(230, 230, 230);
+            }
+            &__iconbox {
+                font-size: 2rem;
+                color: rgb(163, 163, 163);
+                background-color: rgb(245, 245, 245);
+                width: 4rem;
+                height: 4rem;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            &__data {
+                h3 {
+                    font-size: 1.6rem;
+                    color: rgb(10, 10, 10);
+                    margin-bottom: 1rem;
+                }
+                p {
+                    color: rgb(115, 115, 115);
+                    font-size: 1.4rem;
+                    margin-bottom: 1rem;
+                }
+            }
+            &__fecha {
+                color: rgb(163, 163, 163);
+                font-size: 1.4rem;
             }
         }
     }

@@ -151,7 +151,8 @@
 		margin-bottom: .5rem;
 	}
 	input,
-	textarea {
+	textarea,
+	select {
 		outline: 0;
 		border: .1rem solid rgb(229, 229, 229);
 		font-size: 1.4rem;
@@ -163,6 +164,84 @@
 	}
 	button {
 		justify-content: center;
+	}
+}
+
+.checkBoxGroup {
+	h3 {
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		color: rgb(163, 163, 163);
+		letter-spacing: .1rem;
+		font-weight: 400;
+	}
+	&__box {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		div {
+			input {
+				opacity: 0;
+				visibility: hidden;
+				width: 0;
+				&:checked + label {
+					background-color: rgb(10, 10, 10);
+					color: white;
+				}
+			}
+			label {
+				font-size: 1.6rem;
+				display: flex;
+				padding: 1rem 1.5rem;
+				justify-content: center;
+				align-items: center;
+				border: .1rem solid rgb(229, 229, 229);
+				cursor: pointer;
+			}
+		}
+	}
+}
+.checkBoxActive {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	input {
+		opacity: 0;
+		visibility: hidden;
+		width: 0;
+		&:checked + label {
+			background-color: rgb(10, 10, 10);
+			&::after {
+				left: calc(100% - 1.7rem);
+			}
+		}
+	}
+	label {
+		background-color: #e5e5e5;
+		padding: .2rem;
+		border-radius: 1rem;
+		width: 3.5rem;
+		height: 2rem;
+		position: relative;
+		cursor: pointer;
+		&::after {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: .2rem;
+			transition: left .3s;
+			content: '';
+			display: block;
+			width: 1.5rem;
+			height: 1.5rem;
+			border-radius: 50%;
+			background-color: white;
+		}
+	}
+	h3 {
+		font-size: 1.6rem;
+		color: rgb(10, 10, 10);
+		font-weight: 400;
 	}
 }
 
@@ -280,14 +359,29 @@
 .d-flex {
 	display: flex;
 }
-
+.flex-column {
+	flex-direction: column;
+}
 .justify-content-between {
 	justify-content: space-between;
 }
-
+.justify-content-center {
+	justify-content: center;
+}
+.justify-content-end {
+	justify-content: flex-end;
+}
+.align-items-start {
+	align-items: flex-start;
+}
 .align-items-center {
 	align-items: center;
 }
+.flex-row {
+	flex-direction: row;
+}
+
+
 
 // PADDING
 

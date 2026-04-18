@@ -14,7 +14,7 @@
     <div class="auth__databox">
         <p>NUEVA CUENTA</p>
         <h1>Crear Cuenta</h1>
-        <form action="">
+        <form action="" method="post">
             <div class="formGroup">
                 <label for="name">Nombre Completo</label>
                 <input type="text" id="name" placeholder="Tu Nombre">
@@ -35,6 +35,7 @@
                 <button type="submit" class="btn btn--secondary">Crear Cuenta <i class="fa-solid fa-arrow-right ml-1"></i></button>
             </div>
         </form>
+        <?php postValidarRegistro(); ?>
         <div class="auth__databox__redirect">
             ¿Ya tienes una cuenta? <a href="login.html">Inicia Sesión</a>
         </div>
