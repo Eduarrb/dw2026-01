@@ -13,4 +13,9 @@
         global $db;
         return mysqli_query($db, $query);
     }
+
+    function escape($str) {
+        global $db;
+        return mysqli_real_escape_string($db, $str);
+    }
 ?>

@@ -15,21 +15,28 @@
         <p>NUEVA CUENTA</p>
         <h1>Crear Cuenta</h1>
         <form action="" method="post">
-            <div class="formGroup">
-                <label for="name">Nombre Completo</label>
-                <input type="text" id="name" placeholder="Tu Nombre">
+            <div class="rowGroup">
+                <div class="formGroup">
+                    <label for="nombres">Nombres</label>
+                    <input type="text" id="nombres" placeholder="Tu Nombre" name="nombres">
+                    <div class="error">El campo nombre no debe estar vacio</div>
+                </div>
+                <div class="formGroup">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" id="apellidos" placeholder="Tus Apellidos" name="apellidos">
+                </div>
             </div>
             <div class="formGroup">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="tucorreo@vogue.com">
+                <input type="email" id="email" placeholder="tucorreo@vogue.com" name="email">
             </div>
             <div class="formGroup">
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" placeholder="Tu Contraseña">
+                <input type="password" id="password" placeholder="Tu Contraseña" name="password">
             </div>
             <div class="formGroup">
                 <label for="confirmPassword">Confirmar Contraseña</label>
-                <input type="password" id="confirmPassword" placeholder="Confirma tu Contraseña">
+                <input type="password" id="confirmPassword" placeholder="Confirma tu Contraseña" name="confirmPassword">
             </div>
             <div class="formGroup">
                 <button type="submit" class="btn btn--secondary">Crear Cuenta <i class="fa-solid fa-arrow-right ml-1"></i></button>
