@@ -14,35 +14,50 @@
     <div class="auth__databox">
         <p>NUEVA CUENTA</p>
         <h1>Crear Cuenta</h1>
+        <?php $res = postValidarRegistro(); ?>
         <form action="" method="post">
             <div class="rowGroup">
                 <div class="formGroup">
                     <label for="nombres">Nombres</label>
-                    <input type="text" id="nombres" placeholder="Tu Nombre" name="nombres">
-                    <div class="error">El campo nombre no debe estar vacio</div>
+                    <input type="text" id="nombres" placeholder="Tu Nombre" name="nombres" value="<?php echo getDato($res, 1, 'nombres'); ?>">
+                    <div class="error">
+                        <?php echo getDato($res, 0, 'nombres'); ?>
+                    </div>
                 </div>
                 <div class="formGroup">
                     <label for="apellidos">Apellidos</label>
                     <input type="text" id="apellidos" placeholder="Tus Apellidos" name="apellidos">
+                    <div class="error">
+                        <?php //echo $res ? $res['apellidos'] : ''; ?>
+                    </div>
                 </div>
             </div>
             <div class="formGroup">
                 <label for="email">Email</label>
                 <input type="email" id="email" placeholder="tucorreo@vogue.com" name="email">
+                <div class="error">
+                    <?php //echo $res ? $res['email'] : ''; ?>
+                </div>
             </div>
             <div class="formGroup">
                 <label for="password">Contraseña</label>
                 <input type="password" id="password" placeholder="Tu Contraseña" name="password">
+                <div class="error">
+                    <?php //echo $res ? $res['password'] : ''; ?>
+                </div>
             </div>
             <div class="formGroup">
                 <label for="confirmPassword">Confirmar Contraseña</label>
                 <input type="password" id="confirmPassword" placeholder="Confirma tu Contraseña" name="confirmPassword">
+                <div class="error">
+                    <?php //echo $res ? $res['confirmPassword'] : ''; ?>
+                </div>
             </div>
             <div class="formGroup">
                 <button type="submit" class="btn btn--secondary">Crear Cuenta <i class="fa-solid fa-arrow-right ml-1"></i></button>
             </div>
         </form>
-        <?php postValidarRegistro(); ?>
+        
         <div class="auth__databox__redirect">
             ¿Ya tienes una cuenta? <a href="login.html">Inicia Sesión</a>
         </div>
