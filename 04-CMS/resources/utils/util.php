@@ -27,9 +27,9 @@
         return false;
     }
 
-    function getDato($array, $index, $campo) {
-        if(isset($array[$index][$campo])) {
-            return $array[$index][$campo];
+    function getDato($array, $index, $key) {
+        if(isset($array[$index][$key])) {
+            return $array[$index][$key];
         } else {
             echo '';
         }

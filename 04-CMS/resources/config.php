@@ -24,6 +24,7 @@
     $db = conectarDB();
 
     require_once 'utils/util.php';
+    require_once 'utils/sendEmail.php';
 
     require_once 'caller.php';
 ?>

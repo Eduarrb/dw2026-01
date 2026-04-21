@@ -36,8 +36,19 @@
                 return [$errores, $data];
             }
             else {
-                dd("Registro exitoso");
+                postRegistrarUsuario($nombres, $apellidos, $email, $password);
             }
+        }
+    }
+
+    function postRegistrarUsuario($nombres, $apellidos, $email, $password){
+        $token = md5($email);
+        $password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 12));
+        $res = query("INSERT INTO usuarios (nombres, apellidos, email, password, token) VALUES ('$nombres', '$apellidos', '$email', '$password', '$token')");
+        $msj = "<h3>Por favor, activa tu cuenta mediante el siguiente</h3><a href='http://localhost:3000/auth/activate?email=$email&token=$token'>Link</a>";
+        sendEmail($email, "Activar Cuenta", $msj);
+        if($res) {
+            redirect("/auth/register");
         }
     }
 ?>

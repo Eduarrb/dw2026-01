@@ -26,31 +26,31 @@
                 </div>
                 <div class="formGroup">
                     <label for="apellidos">Apellidos</label>
-                    <input type="text" id="apellidos" placeholder="Tus Apellidos" name="apellidos">
+                    <input type="text" id="apellidos" placeholder="Tus Apellidos" name="apellidos" value="<?php echo getDato($res, 1, 'apellidos'); ?>">
                     <div class="error">
-                        <?php //echo $res ? $res['apellidos'] : ''; ?>
+                        <?php echo getDato($res, 0, 'apellidos'); ?>
                     </div>
                 </div>
             </div>
             <div class="formGroup">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="tucorreo@vogue.com" name="email">
+                <input type="email" id="email" placeholder="tucorreo@vogue.com" name="email" value="<?php echo getDato($res, 1, 'email'); ?>">
                 <div class="error">
-                    <?php //echo $res ? $res['email'] : ''; ?>
+                    <?php echo getDato($res, 0, 'email'); ?>
                 </div>
             </div>
             <div class="formGroup">
                 <label for="password">Contraseña</label>
                 <input type="password" id="password" placeholder="Tu Contraseña" name="password">
                 <div class="error">
-                    <?php //echo $res ? $res['password'] : ''; ?>
+                    <?php echo getDato($res, 0, 'password'); ?>
                 </div>
             </div>
             <div class="formGroup">
                 <label for="confirmPassword">Confirmar Contraseña</label>
                 <input type="password" id="confirmPassword" placeholder="Confirma tu Contraseña" name="confirmPassword">
                 <div class="error">
-                    <?php //echo $res ? $res['confirmPassword'] : ''; ?>
+                    <?php echo getDato($res, 0, 'confirmPassword'); ?>
                 </div>
             </div>
             <div class="formGroup">
