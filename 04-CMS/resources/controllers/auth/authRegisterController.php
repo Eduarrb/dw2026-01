@@ -48,6 +48,7 @@
         $msj = "<h3>Por favor, activa tu cuenta mediante el siguiente</h3><a href='http://localhost:3000/auth/activate?email=$email&token=$token'>Link</a>";
         sendEmail($email, "Activar Cuenta", $msj);
         if($res) {
+            setSwal("Registro Exitoso", "Por favor revisa tu correo para activar tu cuenta", "success");
             redirect("/auth/register");
         }
     }

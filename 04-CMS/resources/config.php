@@ -1,6 +1,6 @@
 <?php 
     ob_start();
-
+    session_start();
     
     require __DIR__ . "/../public/vendor/autoload.php";
     

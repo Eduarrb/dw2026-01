@@ -14,6 +14,7 @@
     <div class="auth__databox">
         <p>NUEVA CUENTA</p>
         <h1>Crear Cuenta</h1>
+        <?php showSwalMensaje(); ?>
         <?php $res = postValidarRegistro(); ?>
         <form action="" method="post">
             <div class="rowGroup">
