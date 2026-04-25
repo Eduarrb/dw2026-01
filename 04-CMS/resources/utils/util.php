@@ -14,6 +14,10 @@
         return mysqli_query($db, $query);
     }
 
+    function arrayAssoc($res) {
+        return mysqli_fetch_assoc($res);
+    }
+
     function escape($str) {
         global $db;
         return mysqli_real_escape_string($db, $str);

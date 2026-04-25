@@ -52,4 +52,29 @@
             redirect("/auth/register");
         }
     }
+
+    function postActivateUser() {
+        if(isset($_GET['email']) && isset($_GET['token'])){
+            $email = escape(trim($_GET['email']));
+            $token = escape(trim($_GET['token']));
+
+            $res = query("SELECT id FROM usuarios WHERE email = '$email' AND token = '$token'");
+
+            if(mysqli_num_rows($res) == 1) {
+                $user = arrayAssoc($res);
+                $userId = $user['id'];
+                $res = query("UPDATE usuarios SET token = '', estado = 1 WHERE id = $userId");
+                if($res) {
+                    setSwal('Activación Exitosa', 'Tu cuenta ha sido activada correctamente', 'success');
+                    redirect('/auth/login');
+                } else {
+                    setSwal('Error', 'No se pudo activar tu cuenta, por favor intenta nuevamente', 'error');
+                    redirect('/auth/register');
+                }
+            } else {
+                setSwal('Error', 'Credenciales inválidas o faltantes', 'error');
+                redirect('/auth/register');
+            }
+        }
+    }
 ?>

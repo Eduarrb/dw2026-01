@@ -16,7 +16,7 @@
         <h1>Crear Cuenta</h1>
         <?php showSwalMensaje(); ?>
         <?php $res = postValidarRegistro(); ?>
-        <form action="" method="post">
+        <form method="post">
             <div class="rowGroup">
                 <div class="formGroup">
                     <label for="nombres">Nombres</label>

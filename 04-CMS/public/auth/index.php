@@ -17,6 +17,10 @@
                 include VIEW_AUTH . DS . 'register.php';
             }
 
+            if($url == '/auth/activate') {
+                include VIEW_AUTH . DS . 'activate.php';
+            }
+
             if($url == '/auth/forgot') {
                 include VIEW_AUTH . DS . 'forgot.php';
             }
