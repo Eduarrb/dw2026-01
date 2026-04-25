@@ -1,5 +1,9 @@
 <?php require_once '../../resources/config.php'; ?>
-
+<?php
+    if(!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
+        redirect('/');
+    }
+?>
 <?php include VIEW_LAYOUT . DS . "head.php"; ?>
 
     <main class="main">

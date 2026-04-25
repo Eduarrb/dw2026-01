@@ -2,13 +2,12 @@
 
 <?php include VIEW_LAYOUT . DS . 'head.php'; ?>
 
-	<?php include VIEW_LAND . DS . 'nav.php'; ?>
+	<?php include VIEW_LAYOUT . DS . 'nav.php'; ?>
 
 		<?php 
 			if ($url == '/' || $url == '/index.php') {
 				include VIEW_LAND . DS . 'headerLand.php';
 				include VIEW_LAND . DS . 'servicios.php';
-				dd($_SESSION['rol']);
 				include VIEW_LAND . DS . 'homeCategorias.php';
 				include VIEW_LAND . DS . 'landProductos.php';
 			}
