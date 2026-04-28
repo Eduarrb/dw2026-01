@@ -78,7 +78,9 @@
     <div class="formulario__box">
         <h2>Nuevo Producto</h2>
         <div class="closeForm close">&times;</div>
-        <form class="formulario__form mt-3">
+        <?php showSwalMensaje(); ?>
+        <?php postProducto(); ?>
+        <form class="formulario__form mt-3" method="POST" enctype="multipart/form-data">
             <div class="formGroup">
                 <label for="nombre">Nombre</label>
                 <input type="text" id="nombre" name="nombre">
@@ -94,11 +96,9 @@
                 </div>
                 <div class="formGroup">
                     <label for="stock">Categoria</label>
-                    <select name="categoria" id="categoria">
-                        <option value="">Seleccionar categoría</option>
-                        <option value="camisetas">Camisetas</option>
-                        <option value="pantalones">Pantalones</option>
-                        <option value="zapatos">Zapatos</option>
+                    <select name="catId" id="categoria">
+                        <option value="" selected disabled>Seleccionar categoría</option>
+                        <?php getSelectCategorias(); ?>
                     </select>
                 </div>
             </div>
@@ -109,49 +109,19 @@
                 </div>
                 <div class="formGroup">
                     <label for="destacado">Imagen</label>
-                    <input type="file" id="imagen" name="imagen">
+                    <input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png, image/webp">
                 </div>
             </div>
             <div class="checkBoxGroup">
                 <h3>Tallas</h3>
                 <div class="checkBoxGroup__box">
-                    <div>
-                        <input type="checkbox" id="tallaS" name="tallas" value="S">
-                        <label for="tallaS">S</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tallaM" name="tallas" value="M">
-                        <label for="tallaM">M</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tallaL" name="tallas" value="L">
-                        <label for="tallaL">L</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tallaXL" name="tallas" value="XL">
-                        <label for="tallaXL">XL</label>
-                    </div>
+                    <?php getCheckTallas(); ?>
                 </div>
             </div>
             <div class="checkBoxGroup mt-2">
                 <h3>Colores</h3>
                 <div class="checkBoxGroup__box">
-                    <div>
-                        <input type="checkbox" id="colorBlanco" name="colores" value="Blanco">
-                        <label for="colorBlanco">Blanco</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="colorNegro" name="colores" value="Negro">
-                        <label for="colorNegro">Negro</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="colorRojo" name="colores" value="Rojo">
-                        <label for="colorRojo">Rojo</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="colorAzul" name="colores" value="Azul">
-                        <label for="colorAzul">Azul</label>
-                    </div>
+                    <?php getCheckColores(); ?>
                 </div>
             </div>
             <div class="rowGroup mt-2">
