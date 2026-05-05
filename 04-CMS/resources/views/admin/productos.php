@@ -34,7 +34,14 @@
         <h2>Nuevo Producto</h2>
         <div class="closeForm close">&times;</div>
         <?php showSwalMensaje(); ?>
-        <?php isset($_GET['edit']) ? $prod = getProductoEdit() : postProducto(); ?>
+        <?php
+            if(isset($_GET['edit'])) {
+                $prod = getProductoEdit();
+                postEditProducto($prod['id'], $prod['imagen']);
+            } else {
+                postProducto();
+            }
+        ?>
         <form class="formulario__form mt-3" method="POST" enctype="multipart/form-data">
             <div class="formGroup">
                 <label for="nombre">Nombre</label>
@@ -80,6 +87,9 @@
                 </div>
                 <div class="formGroup">
                     <label for="destacado">Imagen</label>
+                    <?php if (isset($_GET['edit']) && $prod['imagen']): ?>
+                        <img src="../img/productos/<?php echo $prod['imagen']; ?>" alt="<?php echo $prod['nombre']; ?>" class="mb-2" style="width: 150px; height: auto;">
+                    <?php endif; ?>
                     <input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png, image/webp">
                 </div>
             </div>
@@ -92,18 +102,28 @@
             <div class="checkBoxGroup mt-2">
                 <h3>Colores</h3>
                 <div class="checkBoxGroup__box">
-                    <?php getCheckColores(); ?>
+                    <?php isset($_GET['edit']) ? getCheckColoresEdit($prod['id']) : getCheckColores(); ?>
                 </div>
             </div>
             <div class="rowGroup mt-2">
                 <div class="checkBoxActive">
-                    <input type="checkbox" name="destacado" id="destacado">
+                    <input 
+                        type="checkbox" 
+                        name="destacado" 
+                        id="destacado"
+                        <?php echo isset($prod['destacado']) && $prod['destacado'] == 1 ? 'checked' : ''; ?>
+                    >
                     <label for="destacado"> 
                     </label>
                     <h3>Producto Destacado</h3>
                 </div>
                 <div class="checkBoxActive">
-                    <input type="checkbox" name="activo" id="activo">
+                    <input 
+                        type="checkbox" 
+                        name="activo" 
+                        id="activo"
+                        <?php echo isset($prod['activo']) && $prod['activo'] == 1 ? 'checked' : ''; ?>
+                    >
                     <label for="activo"> 
                     </label>
                     <h3>Activo</h3>
@@ -111,7 +131,11 @@
             </div>
             <div class="formGroup d-flex justify-content-end flex-row mt-3">
                 <a href="" class="btn btn--primary mr-2 closeProd">Cancelar</a>
-                <button type="submit" class="btn btn--secondary">Crear Producto</button>
+                <?php if (isset($_GET['edit'])): ?>
+                    <button type="submit" class="btn btn--secondary">Actualizar Producto</button>
+                <?php else: ?>
+                    <button type="submit" class="btn btn--secondary">Crear Producto</button>
+                <?php endif; ?>
             </div>
         </form>
     </div>

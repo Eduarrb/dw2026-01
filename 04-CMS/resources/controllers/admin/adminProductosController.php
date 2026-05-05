@@ -27,7 +27,6 @@
         while($row = arrayAssoc($resTallas)) {
             $tallas[] = $row['tallaId'];
         }
-
         $res = query("SELECT * FROM tallas");
         while($row = arrayAssoc($res)) {
             $checked = in_array($row['id'], $tallas) ? 'checked' : '';
@@ -40,7 +39,34 @@
                         value="<?php echo $row['id']; ?>" 
                         <?php echo $checked; ?> 
                     >
-                    <label for="<?php echo $row['nombre']; ?>"><?php echo $row['sigla']; ?></label>
+                    <label for="<?php echo $row['nombre']; ?>">
+                        <?php echo $row['sigla']; ?>
+                    </label>
+                </div>
+        <?php }
+    }
+
+    function getCheckColoresEdit(int $prodId) {
+        $resColores = query("SELECT colorId FROM producto_color WHERE productoId = $prodId");
+        $colores = [];
+        while($row = arrayAssoc($resColores)) {
+            $colores[] = $row['colorId'];
+        }
+        $res = query("SELECT * FROM colores");
+        while($row = arrayAssoc($res)) {
+            $checked = in_array($row['id'], $colores) ? 'checked' : '';
+            ?>
+                <div>
+                    <input 
+                        type="checkbox" 
+                        id="color<?php echo $row['nombre']; ?>" 
+                        name="colores[]" 
+                        value="<?php echo $row['id']; ?>" 
+                        <?php echo $checked; ?> 
+                    >
+                    <label for="color<?php echo $row['nombre']; ?>">
+                        <?php echo $row['nombre']; ?>
+                    </label>
                 </div>
         <?php }
     }
@@ -72,21 +98,70 @@ DELIMITADOR;
             $imagen = $_FILES['imagen']['name'];
             $imagenTmp = $_FILES['imagen']['tmp_name'];
 
+            // 1️⃣ almacenar nueva imagen
             $imagen = md5(uniqid()) . "." . explode(".", $imagen)[1];
             move_uploaded_file($imagenTmp, "../img/productos/$imagen");
 
+            // 2️⃣ insertar los datos del producto
             $prod = query("INSERT INTO productos (nombre, descripcion, precio, catId, stock, destacado, activo, imagen) VALUES ('$nombre', '$descripcion', '$precio', '$catId', '$stock', '$destacado', '$activo', '$imagen')");
 
+            // 3️⃣ insertar las tallas de forma individual para cada producto
             foreach($tallas as $id) {
                 query("INSERT INTO producto_talla (productoId, tallaId) VALUES (LAST_INSERT_ID(), $id)");
             }
 
+            // 4️⃣ insertar los colores de forma individual para cada producto
             foreach($colores as $id) {
                 query("INSERT INTO producto_color (productoId, colorId) VALUES (LAST_INSERT_ID(), $id)");
             }
 
             if($prod) {
                 setSwal('Producto creado', 'El producto ha sido creado exitosamente', 'success');
+                redirect('productos');
+            }
+        }
+    }
+
+    function postEditProducto(int $prodId, string $imagenActual) {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $nombre = escape(trim($_POST['nombre']));
+            $descripcion = escape(trim($_POST['descripcion']));
+            $precio = escape(trim($_POST['precio']));
+            $catId = escape(trim($_POST['catId']));
+            $stock = escape(trim($_POST['stock']));
+            $destacado = isset($_POST['destacado']) ? 1 : 0;
+            $activo = isset($_POST['activo']) ? 1 : 0;
+            $tallas = $_POST['tallas'];
+            $colores = $_POST['colores'];
+            $imagen = $_FILES['imagen']['name'];
+            $imagenTmp = $_FILES['imagen']['tmp_name'];
+
+            // 1️⃣ o vamos a almacenar una nueva imagen o mantenemos la misma
+            if(!empty($imagen)) {
+                $imagen = md5(uniqid()) . "." . explode(".", $imagen)[1];
+                move_uploaded_file($imagenTmp, "../img/productos/$imagen");
+                $imagenLocation = "../img/productos/$imagenActual";
+                unlink($imagenLocation);
+            } else {
+                $imagen = $imagenActual;
+            }
+
+            // 2️⃣ actualizar los datos del producto
+            $res = query("UPDATE productos SET nombre = '$nombre', descripcion = '$descripcion', precio = '$precio', catId = '$catId', stock = '$stock', destacado = '$destacado', activo = '$activo', imagen = '$imagen' WHERE id = $prodId");
+
+            // 3️⃣ actualizar las tallas de forma individual para cada producto
+            query("DELETE FROM producto_talla WHERE productoId = $prodId");
+            foreach($tallas as $id) {
+                query("INSERT INTO producto_talla (productoId, tallaId) VALUES ($prodId, $id)");
+            }
+
+            // 4️⃣ actualizar los colores de forma individual para cada producto
+            query("DELETE FROM producto_color WHERE productoId = $prodId");
+            foreach($colores as $id) {
+                query("INSERT INTO producto_color (productoId, colorId) VALUES ($prodId, $id)");
+            }
+            if($res) {
+                setSwal('Producto actualizado', 'El producto ha sido actualizado exitosamente', 'success');
                 redirect('productos');
             }
         }
@@ -116,9 +191,9 @@ DELIMITADOR;
                         <a href="?edit={$row['prodId']}">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
-                        <button>
+                        <a href="#" class="delete-link">
                             <i class="fa-solid fa-trash"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
 DELIMITADOR;

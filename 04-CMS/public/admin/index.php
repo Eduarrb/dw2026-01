@@ -19,6 +19,7 @@
             }
         ?>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <?php if($url == '/admin' || $url == '/admin/index.php') : ?>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="../js/chart.js"></script>

@@ -303,6 +303,9 @@
                             }
                             &:last-child {
                                 color: v.$color-rojo;
+                                i {
+                                    pointer-events: none;
+                                }
                                 &:hover {
                                     background-color: v.$color-rojoClaro;
                                 }

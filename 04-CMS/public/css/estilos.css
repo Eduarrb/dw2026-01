@@ -1958,6 +1958,9 @@ a {
 .contenido__table__body__item div:nth-child(7) button:last-child, .contenido__table__body__item div:nth-child(7) a:last-child {
   color: rgb(234, 88, 12);
 }
+.contenido__table__body__item div:nth-child(7) button:last-child i, .contenido__table__body__item div:nth-child(7) a:last-child i {
+  pointer-events: none;
+}
 .contenido__table__body__item div:nth-child(7) button:last-child:hover, .contenido__table__body__item div:nth-child(7) a:last-child:hover {
   background-color: rgb(254, 215, 213);
 }
