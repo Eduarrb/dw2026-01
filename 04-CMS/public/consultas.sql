@@ -93,3 +93,5 @@ ALTER TABLE producto_color
     ADD CONSTRAINT fk_color FOREIGN KEY (colorId)
     REFERENCES colores(id)
     ON DELETE CASCADE ON UPDATE CASCADE
+
+ALTER TABLE productos ADD COLUMN created_at DATE AFTER activo
