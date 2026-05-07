@@ -191,7 +191,7 @@ DELIMITADOR;
                         <a href="?edit={$row['prodId']}">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
-                        <a href="#" class="delete-link">
+                        <a href="#" class="delete-link" data-id="{$row['prodId']}">
                             <i class="fa-solid fa-trash"></i>
                         </a>
                     </div>
@@ -206,6 +206,15 @@ DELIMITADOR;
             $id = escape(trim($_GET['edit']));
             $producto = query("SELECT * FROM productos WHERE id = $id");
             return arrayAssoc($producto);
+        }
+    }
+
+    function postDeleteProducto(int $prodId) {
+        $res = query("DELETE FROM productos WHERE id = $prodId");
+        if($res) {
+            echo json_encode(['msg' => 'ok']);
+        } else {
+            echo json_encode(['msg' => 'error']);
         }
     }
 ?>

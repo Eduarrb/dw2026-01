@@ -1,5 +1,7 @@
 <?php
+    require_once '../../../resources/config.php';
+
     if(isset($_GET['action']) && $_GET['action'] ==  'deleteProducto') {
-        echo json_encode(['msg' => 'Producto eliminado']);
+        postDeleteProducto((int)escape(trim($_GET['id'])));
     }
 ?>

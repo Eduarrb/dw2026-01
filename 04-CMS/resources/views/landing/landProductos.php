@@ -19,11 +19,8 @@
                 <div class="productos__contenedor__box__item__top">
                     <img src="img/productos/01.webp" alt="Producto 1" />
                     <div></div>
-                    <!-- capa 3 -->
                     <span>destacado</span>
-                    <!-- capa 4 -->
                     <a href="#">
-                        <!-- capa 5 -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path
                                 stroke-linecap="round"
@@ -34,7 +31,6 @@
                         añadir
                     </a>
                 </div>
-                <!-- 🤣🤣 es bottom no buttom HORRRRROOOOOR!!!! -->
                 <div class="productos__contenedor__box__item__buttom">
                     <h4>camisetas</h4>
                     <p>Camiseta Oversize Essential</p>

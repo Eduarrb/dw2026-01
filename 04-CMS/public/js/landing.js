@@ -6,3 +6,18 @@ menuIcon.addEventListener('click', () => {
 	menu.classList.toggle('active');
 	circle.classList.toggle('active');
 });
+
+const obtenerProductosJson = async () => {
+	try {
+		const res = await axios.get('publicApi/productos.php', {
+			params: {
+				action: 'obtenerLandingProductos'
+			}
+		});
+		console.log(res.data);	
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+obtenerProductosJson();
