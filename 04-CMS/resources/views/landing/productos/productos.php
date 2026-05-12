@@ -9,12 +9,7 @@
                 <div>Todas <i class="fa-solid fa-angle-down"></i></div>
                 <ul>
                     <li>Todas<i class="fa-solid fa-check"></i></li>
-                    <li>Camisetas</li>
-                    <li>Pantalones</li>
-                    <li>Vestidos</li>
-                    <li>Chaquetas</li>
-                    <li>Accesorios</li>
-                    <li>Calzado</li>
+                    <?php getLandingCategorias(); ?>
                 </ul>
             </div>
             <div class="contenidoProd__contenedor__form__recientes inputSelect">

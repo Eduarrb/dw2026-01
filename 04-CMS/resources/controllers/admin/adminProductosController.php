@@ -103,7 +103,7 @@ DELIMITADOR;
             move_uploaded_file($imagenTmp, "../img/productos/$imagen");
 
             // 2️⃣ insertar los datos del producto
-            $prod = query("INSERT INTO productos (nombre, descripcion, precio, catId, stock, destacado, activo, imagen) VALUES ('$nombre', '$descripcion', '$precio', '$catId', '$stock', '$destacado', '$activo', '$imagen')");
+            $prod = query("INSERT INTO productos (nombre, descripcion, precio, catId, stock, destacado, activo, imagen, created_at) VALUES ('$nombre', '$descripcion', '$precio', '$catId', '$stock', '$destacado', '$activo', '$imagen', NOW())");
 
             // 3️⃣ insertar las tallas de forma individual para cada producto
             foreach($tallas as $id) {

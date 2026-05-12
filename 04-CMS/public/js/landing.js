@@ -8,22 +8,25 @@ menuIcon.addEventListener('click', () => {
 	circle.classList.toggle('active');
 });
 
-const obtenerProductosJson = async () => {
+const obtenerProductosJson = async (prodName = '', categoria = '') => {
 	try {
 		const res = await axios.get('publicApi/productos.php', {
 			params: {
 				action: 'obtenerLandingProductos',
 				url: window.location.pathname,
+				prodName,
+				categoria,
 			},
 		});
 		return res.data;
+		console.log(res.data);
 	} catch (error) {
 		console.error(error);
 	}
 };
 
-async function renderProductos($productos) {
-	const prod = await obtenerProductosJson();
+async function renderProductos(prodName = '', categoria = '') {
+	const prod = await obtenerProductosJson(prodName, categoria);
 	let plantilla = '';
 	prod.forEach((e) => {
 		let tallas = '';
@@ -63,3 +66,4 @@ async function renderProductos($productos) {
 }
 
 renderProductos();
+
