@@ -1144,7 +1144,7 @@ a {
   opacity: 1;
   transition: all 0.3s;
 }
-.productos__contenedor__box__item:hover .productos__contenedor__box__item__top a {
+.productos__contenedor__box__item:hover .productos__contenedor__box__item__top form {
   bottom: 1.3rem;
   transition: all 0.3s;
 }
@@ -1176,7 +1176,7 @@ a {
   transition: all 0.3s;
   will-change: transform;
 }
-.productos__contenedor__box__item__top div, .productos__contenedor__box__item__top span, .productos__contenedor__box__item__top a {
+.productos__contenedor__box__item__top div, .productos__contenedor__box__item__top span, .productos__contenedor__box__item__top form {
   position: absolute;
 }
 .productos__contenedor__box__item__top div {
@@ -1199,20 +1199,25 @@ a {
   top: 1.3rem;
   left: 1.3rem;
 }
-.productos__contenedor__box__item__top a {
-  display: flex;
-  align-items: center;
+.productos__contenedor__box__item__top form {
   background-color: black;
-  color: white;
   bottom: -5rem;
   left: 50%;
   transform: translateX(-50%);
+  padding: 1rem 2rem;
+}
+.productos__contenedor__box__item__top form button {
+  align-items: center;
+  display: flex;
+  color: white;
   font-size: 1.2rem;
   text-transform: uppercase;
-  padding: 1rem 2rem;
   transition: all 0.3s;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
-.productos__contenedor__box__item__top a svg {
+.productos__contenedor__box__item__top form button svg {
   width: 1.7rem;
   margin-right: 1.5rem;
 }

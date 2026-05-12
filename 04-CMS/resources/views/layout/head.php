@@ -8,6 +8,8 @@
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<?php if($url == '/auth/register' || $url == '/auth/login' || $url == '/auth/forgot' || $url == '/admin/productos') :?>
 			<script src="../js/swal.js"></script>
+		<?php else : ?>
+			<script src="js/swal.js"></script>
 		<?php endif; ?>
 		<?php if ($url != './') : ?>
 			<link rel="stylesheet" href="../css/estilos.css" />

@@ -22,11 +22,13 @@
             </div>
         </form>
         <div class="contenidoProd__contenedor__filtrosTags"></div>
+        <?php showSwalMensaje(); ?>
         <div class="contenidoProd__contenedor__productos">
             <div class="contenidoProd__contenedor__productos--cantidad">6 productos</div>
             <div class="productos__contenedor__box d-flex mt-3">
                 
             </div>
+            <?php postAddProductCart(); ?>
         </div>
     </div>
 </section>

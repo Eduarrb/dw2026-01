@@ -47,12 +47,55 @@ cartCantiItem.forEach((item) => {
 	const cartCantiBox = item.querySelector('.cart__contenedor__box__producto__item__data__col__canti');
 	const cartCantiNum = item.querySelector('.cart__contenedor__box__producto__item__data__col__canti .num');
 
-	cartCantiBox.addEventListener('click', e => {
-		if(e.target.classList.contains('menos') || e.target.classList.contains('fa-solid') && e.target.classList.contains('fa-minus')){
-			if(cartCantiNum.textContent > 1) cartCantiNum.textContent--;
+	cartCantiBox.addEventListener('click', (e) => {
+		if (e.target.classList.contains('menos') || (e.target.classList.contains('fa-solid') && e.target.classList.contains('fa-minus'))) {
+			if (cartCantiNum.textContent > 1) cartCantiNum.textContent--;
 		}
-		if(e.target.classList.contains('mas') || e.target.classList.contains('fa-solid') && e.target.classList.contains('fa-plus')){
+		if (e.target.classList.contains('mas') || (e.target.classList.contains('fa-solid') && e.target.classList.contains('fa-plus'))) {
 			cartCantiNum.textContent++;
 		}
-	})
-})
+	});
+});
+
+const getResumenJson = async () => {
+	try {
+		const res = await axios.get('publicApi/productos.php', {
+			params: {
+				action: 'obtenerResumen',
+			},
+		});
+		return res.data;
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+const resumenBox = document.querySelector('.cart__contenedor__box__resumen');
+
+const renderResumen = async () => {
+	const resumen = await getResumenJson();
+	const plantilla = `
+		<div class="cart__contenedor__box__resumen--title">
+            resumen
+		</div>
+		<div class="cart__contenedor__box__resumen__subtotal">
+			<span>Subtotal</span>
+			<span>$${resumen.subtotal.toFixed(2)}</span>
+		</div>
+		<div class="cart__contenedor__box__resumen__envio">
+			<span>Envío</span>
+			<span>Gratis</span>
+		</div>
+		<hr>
+		<div class="cart__contenedor__box__resumen__total">
+			<span>Total</span>
+			<span>$${resumen.total.toFixed(2)}</span>
+		</div>
+		<form class="cart__contenedor__box__resumen__form">
+			<button type="submit" class="btn btn--secondary">FINALIZAR COMPRA</button>
+		</form>
+	`;
+	resumenBox.innerHTML = plantilla;
+}
+
+renderResumen();
