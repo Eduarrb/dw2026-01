@@ -4,4 +4,9 @@
     if(isset($_GET['action']) && $_GET['action'] ==='obtenerLandingProductos') {
         getLandingProductos($_GET['url']);
     }
+
+    if(isset($_GET['action']) && $_GET['action'] === 'obtenerResumen') {
+        getResumen();
+    }
+
 ?>
