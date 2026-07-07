@@ -43,16 +43,131 @@ inputSelects.forEach((input) => {
 	});
 });
 
-cartCantiItem.forEach((item) => {
+const actualizarCantidad = async (prodId, action) => {
+	try {
+		const res = await axios.get('publicApi/productos.php', {
+			params: {
+				action,
+				prodId,
+			},
+		});
+		console.log(res.data);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+cartCantiItem.forEach(async (item) => {
 	const cartCantiBox = item.querySelector('.cart__contenedor__box__producto__item__data__col__canti');
 	const cartCantiNum = item.querySelector('.cart__contenedor__box__producto__item__data__col__canti .num');
 
-	cartCantiBox.addEventListener('click', e => {
-		if(e.target.classList.contains('menos') || e.target.classList.contains('fa-solid') && e.target.classList.contains('fa-minus')){
-			if(cartCantiNum.textContent > 1) cartCantiNum.textContent--;
+	cartCantiBox.addEventListener('click', async (e) => {
+		if (e.target.classList.contains('menos') || (e.target.classList.contains('fa-solid') && e.target.classList.contains('fa-minus'))) {
+			await actualizarCantidad(item.dataset.prodid, 'menos');
+			if (cartCantiNum.textContent > 1) cartCantiNum.textContent--;
+			await renderResumen();
 		}
-		if(e.target.classList.contains('mas') || e.target.classList.contains('fa-solid') && e.target.classList.contains('fa-plus')){
+		if (e.target.classList.contains('mas') || (e.target.classList.contains('fa-solid') && e.target.classList.contains('fa-plus'))) {
+			await actualizarCantidad(item.dataset.prodid, 'mas');
 			cartCantiNum.textContent++;
+			await renderResumen();
 		}
+	});
+});
+
+const getResumenJson = async () => {
+	try {
+		const res = await axios.get('publicApi/productos.php', {
+			params: {
+				action: 'obtenerResumen',
+			},
+		});
+		return res.data;
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+const resumenBox = document.querySelector('.cart__contenedor__box__resumen');
+
+const renderResumen = async () => {
+	const resumen = await getResumenJson();
+	const plantilla = `
+		<div class="cart__contenedor__box__resumen--title">
+            resumen
+		</div>
+		<div class="cart__contenedor__box__resumen__subtotal">
+			<span>Subtotal</span>
+			<span>$${resumen.subtotal.toFixed(2)}</span>
+		</div>
+		<div class="cart__contenedor__box__resumen__envio">
+			<span>Envío</span>
+			<span>Gratis</span>
+		</div>
+		<hr>
+		<div class="cart__contenedor__box__resumen__total">
+			<span>Total</span>
+			<span>$${resumen.total.toFixed(2)}</span>
+		</div>
+		<form class="cart__contenedor__box__resumen__form">
+			<button type="submit" class="btn btn--secondary">FINALIZAR COMPRA</button>
+		</form>
+	`;
+	resumenBox.innerHTML = plantilla;
+};
+
+renderResumen();
+
+const actualizarProdDato = async (prodId, datoId, action) => {
+	try {
+		const res = await axios.get('publicApi/productos.php', {
+			params: {
+				action,
+				prodId,
+				datoId,
+			},
+		});
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+const tallaSelect = document.querySelectorAll('.cart__contenedor__box__producto__item__data__col__selects__talla');
+tallaSelect.forEach((item) => {
+	item.addEventListener('click', async (e) => {
+		if (e.target.tagName === 'LI') {
+			await actualizarProdDato(e.target.parentElement.dataset.prodid, e.target.dataset.tallaid, 'actualizarTalla');
+		}
+	});
+});
+
+const colorSelect = document.querySelectorAll('.cart__contenedor__box__producto__item__data__col__selects__color');
+colorSelect.forEach((item) => {
+	item.addEventListener('click', async (e) => {
+		if (e.target.tagName === 'LI') {
+			await actualizarProdDato(e.target.parentElement.dataset.prodid, e.target.dataset.colorid, 'actualizarColor');
+		}
+	});
+});
+
+const eliminarProd = async (prodId) => {
+	try {
+		const res = await axios.get('publicApi/productos.php', {
+			params: {
+				action: 'eliminarProd',
+				prodId,
+			},
+		});
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+const btnsClose = document.querySelectorAll('.close');
+btnsClose.forEach(btn => {
+	btn.addEventListener('click', async (e) => {
+		e.target.closest('.cart__contenedor__box__producto__item').remove();
+		eliminarProd(e.target.parentElement.dataset.prodid);
+		await renderResumen();
 	})
 })

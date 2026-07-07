@@ -42,6 +42,5 @@
 				</div>
 			</div>
 		</footer>
-		<script src="js/codigo.js"></script>
 	</body>
 </html>

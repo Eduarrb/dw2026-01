@@ -24,7 +24,7 @@
                             opacity: 1;
                             transition: all .3s;
                         }
-                        a {
+                        form {
                             bottom: 1.3rem;
                             transition: all .3s;
                         }
@@ -51,7 +51,7 @@
                         transition: all .3s;
                         will-change: transform;
                     }
-                    div, span, a {
+                    div, span, form {
                         position: absolute;
                     }
                     div {
@@ -74,22 +74,26 @@
                         top: 1.3rem;
                         left: 1.3rem;
                     }
-                    a {
-                        display: flex;
-                        align-items: center;
+                    form {
                         background-color: black;
-                        color: white;
-                        // bottom: 1.3rem;
                         bottom: -5rem;
                         left: 50%;
                         transform: translateX(-50%);
-                        font-size: 1.2rem;
-                        text-transform: uppercase;
                         padding: 1rem 2rem;
-                        transition: all .3s;
-                        svg {
-                            width: 1.7rem;
-                            margin-right: 1.5rem;
+                        button {
+                            align-items: center;
+                            display: flex;
+                            color: white;
+                            font-size: 1.2rem;
+                            text-transform: uppercase;
+                            transition: all .3s;
+                            border: none;
+                            background-color: transparent;
+                            cursor: pointer;
+                            svg {
+                                width: 1.7rem;
+                                margin-right: 1.5rem;
+                            }
                         }
                     }
                 }

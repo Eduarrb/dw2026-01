@@ -2,7 +2,7 @@
 
 <?php include VIEW_LAYOUT . DS . 'head.php'; ?>
 
-	<?php include VIEW_LAND . DS . 'nav.php'; ?>
+	<?php include VIEW_LAYOUT . DS . 'nav.php'; ?>
 
 		<?php 
 			if ($url == '/' || $url == '/index.php') {

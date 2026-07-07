@@ -53,7 +53,8 @@
 				</div>
 			</div>
 		</footer>
-		<script src="js/menu.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="js/landing.js"></script>
 		<?php if ($url == '/productos') : ?>
 			<script src="js/productFilters.js"></script>
 		<?php endif; ?>

@@ -2,7 +2,7 @@
 
 <?php include VIEW_LAYOUT . DS . 'head.php'; ?>
 
-    <?php include VIEW_AUTH . DS . 'nav.php'; ?>
+    <?php include VIEW_LAYOUT . DS . 'nav.php'; ?>
 
 		<?php
             if ($url == '/auth/' || $url == '/auth/index.php') {
@@ -15,6 +15,14 @@
 
             if($url == '/auth/register') {
                 include VIEW_AUTH . DS . 'register.php';
+            }
+
+            if($url == '/auth/activate') {
+                include VIEW_AUTH . DS . 'activate.php';
+            }
+
+            if($url == '/auth/logout') {
+                include VIEW_AUTH . DS . 'logout.php';
             }
 
             if($url == '/auth/forgot') {

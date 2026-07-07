@@ -25,144 +25,105 @@
             <div>Acciones</div>
         </div>
         <div class="contenido__table__body">
-            <div class="contenido__table__body__item">
-                <div>
-                    <img src="../img/productos/01.webp" alt="Camiseta">
-                </div>
-                <div class="d-flex flex-column justify-content-center align-items-start">
-                    <h3 class="mb-1">Camiseta Oversize Essential</h3>
-                    <div class="destacado">Destacado</div>
-                </div>
-                <div>Camisetas</div>
-                <div>$ 39.99</div>
-                <div>
-                    <span>50</span>
-                </div>
-                <div><span>Activo</span></div>
-                <div>
-                    <button>
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
-                    <button>
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="contenido__table__body__item">
-                <div>
-                    <img src="../img/productos/01.webp" alt="Camiseta">
-                </div>
-                <div class="d-flex flex-column justify-content-center align-items-start">
-                    <h3 class="mb-1">Camiseta Oversize Essential</h3>
-                    <div class="destacado">Destacado</div>
-                </div>
-                <div>Camisetas</div>
-                <div>$ 39.99</div>
-                <div>
-                    <span>50</span>
-                </div>
-                <div><span>Activo</span></div>
-                <div>
-                    <button>
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
-                    <button>
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-            </div>
+            <?php getProductos(); ?>
         </div>
     </div>
 </div>
-<div class="formulario">
+<div class="formulario <?php echo isset($_GET['edit']) ? 'active' : ''; ?>">
     <div class="formulario__box">
         <h2>Nuevo Producto</h2>
         <div class="closeForm close">&times;</div>
-        <form class="formulario__form mt-3">
+        <?php showSwalMensaje(); ?>
+        <?php
+            if(isset($_GET['edit'])) {
+                $prod = getProductoEdit();
+                postEditProducto($prod['id'], $prod['imagen']);
+            } else {
+                postProducto();
+            }
+        ?>
+        <form class="formulario__form mt-3" method="POST" enctype="multipart/form-data">
             <div class="formGroup">
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre">
+                <input 
+                    type="text" 
+                    id="nombre" 
+                    name="nombre"
+                    value="<?php echo isset($_GET['edit']) ? $prod['nombre'] : ''; ?>"
+                >
             </div>
             <div class="formGroup">
                 <label for="descripcion">Descripción</label>
-                <textarea id="descripcion" name="descripcion" rows="3"></textarea>
+                <textarea id="descripcion" name="descripcion" rows="3"><?php echo isset($_GET['edit']) ? $prod['descripcion'] : ''; ?></textarea>
             </div>
             <div class="rowGroup">
                 <div class="formGroup">
                     <label for="precio">Precio</label>
-                    <input type="number" id="precio" name="precio" step="0.01">
+                    <input 
+                        type="number" 
+                        id="precio" 
+                        name="precio" 
+                        step="0.01" 
+                        value="<?php echo isset($_GET['edit']) ? $prod['precio'] : ''; ?>"
+                    >
                 </div>
                 <div class="formGroup">
                     <label for="stock">Categoria</label>
-                    <select name="categoria" id="categoria">
-                        <option value="">Seleccionar categoría</option>
-                        <option value="camisetas">Camisetas</option>
-                        <option value="pantalones">Pantalones</option>
-                        <option value="zapatos">Zapatos</option>
+                    <select name="catId" id="categoria">
+                        <option value="" selected disabled>Seleccionar categoría</option>
+                        <?php getSelectCategorias((int)$prod['catId'], isset($_GET['edit'])); ?>
                     </select>
                 </div>
             </div>
             <div class="rowGroup">
                 <div class="formGroup">
                     <label for="stock">Stock</label>
-                    <input type="number" id="stock" name="stock">
+                    <input 
+                        type="number" 
+                        id="stock" 
+                        name="stock" 
+                        value="<?php echo isset($_GET['edit']) ? $prod['stock'] : ''; ?>"
+                    >
                 </div>
                 <div class="formGroup">
                     <label for="destacado">Imagen</label>
-                    <input type="file" id="imagen" name="imagen">
+                    <?php if (isset($_GET['edit']) && $prod['imagen']): ?>
+                        <img src="../img/productos/<?php echo $prod['imagen']; ?>" alt="<?php echo $prod['nombre']; ?>" class="mb-2" style="width: 150px; height: auto;">
+                    <?php endif; ?>
+                    <input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png, image/webp">
                 </div>
             </div>
             <div class="checkBoxGroup">
                 <h3>Tallas</h3>
                 <div class="checkBoxGroup__box">
-                    <div>
-                        <input type="checkbox" id="tallaS" name="tallas" value="S">
-                        <label for="tallaS">S</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tallaM" name="tallas" value="M">
-                        <label for="tallaM">M</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tallaL" name="tallas" value="L">
-                        <label for="tallaL">L</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tallaXL" name="tallas" value="XL">
-                        <label for="tallaXL">XL</label>
-                    </div>
+                    <?php isset($_GET['edit']) ? getCheckTallasEdit($prod['id']) : getCheckTallas(); ?>     
                 </div>
             </div>
             <div class="checkBoxGroup mt-2">
                 <h3>Colores</h3>
                 <div class="checkBoxGroup__box">
-                    <div>
-                        <input type="checkbox" id="colorBlanco" name="colores" value="Blanco">
-                        <label for="colorBlanco">Blanco</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="colorNegro" name="colores" value="Negro">
-                        <label for="colorNegro">Negro</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="colorRojo" name="colores" value="Rojo">
-                        <label for="colorRojo">Rojo</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="colorAzul" name="colores" value="Azul">
-                        <label for="colorAzul">Azul</label>
-                    </div>
+                    <?php isset($_GET['edit']) ? getCheckColoresEdit($prod['id']) : getCheckColores(); ?>
                 </div>
             </div>
             <div class="rowGroup mt-2">
                 <div class="checkBoxActive">
-                    <input type="checkbox" name="destacado" id="destacado">
+                    <input 
+                        type="checkbox" 
+                        name="destacado" 
+                        id="destacado"
+                        <?php echo isset($prod['destacado']) && $prod['destacado'] == 1 ? 'checked' : ''; ?>
+                    >
                     <label for="destacado"> 
                     </label>
                     <h3>Producto Destacado</h3>
                 </div>
                 <div class="checkBoxActive">
-                    <input type="checkbox" name="activo" id="activo">
+                    <input 
+                        type="checkbox" 
+                        name="activo" 
+                        id="activo"
+                        <?php echo isset($prod['activo']) && $prod['activo'] == 1 ? 'checked' : ''; ?>
+                    >
                     <label for="activo"> 
                     </label>
                     <h3>Activo</h3>
@@ -170,7 +131,11 @@
             </div>
             <div class="formGroup d-flex justify-content-end flex-row mt-3">
                 <a href="" class="btn btn--primary mr-2 closeProd">Cancelar</a>
-                <button type="submit" class="btn btn--secondary">Crear Producto</button>
+                <?php if (isset($_GET['edit'])): ?>
+                    <button type="submit" class="btn btn--secondary">Actualizar Producto</button>
+                <?php else: ?>
+                    <button type="submit" class="btn btn--secondary">Crear Producto</button>
+                <?php endif; ?>
             </div>
         </form>
     </div>

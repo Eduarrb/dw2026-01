@@ -14,6 +14,10 @@
         return mysqli_query($db, $query);
     }
 
+    function arrayAssoc($res) {
+        return mysqli_fetch_assoc($res);
+    }
+
     function escape($str) {
         global $db;
         return mysqli_real_escape_string($db, $str);
@@ -27,11 +31,38 @@
         return false;
     }
 
-    function getDato($array, $index, $campo) {
-        if(isset($array[$index][$campo])) {
-            return $array[$index][$campo];
+    function getDato($array, $index, $key) {
+        if(isset($array[$index][$key])) {
+            return $array[$index][$key];
         } else {
             echo '';
+        }
+    }
+
+    function setSwal($titulo, $texto, $icono){
+        if(!empty($titulo)){
+            $_SESSION['titulo'] = $titulo;
+            $_SESSION['texto'] = $texto;
+            $_SESSION['icono'] = $icono;
+        } else {
+            $titulo = '';
+            $texto = '';
+            $icono = '';
+        }
+    }
+
+    function showSwalMensaje(){
+        if(isset($_SESSION['titulo'])){
+            $titulo = $_SESSION['titulo'];
+            $texto = $_SESSION['texto'];
+            $icono = $_SESSION['icono'];
+            $script = <<<DELIMITADOR
+                <script>
+                    showSwal("$titulo", "$texto", "$icono");
+                </script>
+DELIMITADOR;
+            echo $script;
+            unset($_SESSION['titulo'], $_SESSION['texto'], $_SESSION['icono']);
         }
     }
 ?>

@@ -56,6 +56,10 @@ a {
   }
 }
 
+.swal2-popup {
+  font-size: 1.6rem;
+}
+
 .error {
   color: rgb(234, 88, 12);
   font-size: 1.5rem;
@@ -1140,7 +1144,7 @@ a {
   opacity: 1;
   transition: all 0.3s;
 }
-.productos__contenedor__box__item:hover .productos__contenedor__box__item__top a {
+.productos__contenedor__box__item:hover .productos__contenedor__box__item__top form {
   bottom: 1.3rem;
   transition: all 0.3s;
 }
@@ -1172,7 +1176,7 @@ a {
   transition: all 0.3s;
   will-change: transform;
 }
-.productos__contenedor__box__item__top div, .productos__contenedor__box__item__top span, .productos__contenedor__box__item__top a {
+.productos__contenedor__box__item__top div, .productos__contenedor__box__item__top span, .productos__contenedor__box__item__top form {
   position: absolute;
 }
 .productos__contenedor__box__item__top div {
@@ -1195,20 +1199,25 @@ a {
   top: 1.3rem;
   left: 1.3rem;
 }
-.productos__contenedor__box__item__top a {
-  display: flex;
-  align-items: center;
+.productos__contenedor__box__item__top form {
   background-color: black;
-  color: white;
   bottom: -5rem;
   left: 50%;
   transform: translateX(-50%);
+  padding: 1rem 2rem;
+}
+.productos__contenedor__box__item__top form button {
+  align-items: center;
+  display: flex;
+  color: white;
   font-size: 1.2rem;
   text-transform: uppercase;
-  padding: 1rem 2rem;
   transition: all 0.3s;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
-.productos__contenedor__box__item__top a svg {
+.productos__contenedor__box__item__top form button svg {
   width: 1.7rem;
   margin-right: 1.5rem;
 }
@@ -1919,19 +1928,25 @@ a {
   align-items: center;
 }
 .contenido__table__body__item div:nth-child(6) span {
-  background-color: rgb(187, 247, 208);
-  color: rgb(22, 163, 74);
+  border-radius: 0.8rem;
   font-size: 1.5rem;
   padding: 0.5rem 1.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  border-radius: 0.8rem;
+}
+.contenido__table__body__item div:nth-child(6) span.activo {
+  background-color: rgb(187, 247, 208);
+  color: rgb(22, 163, 74);
+}
+.contenido__table__body__item div:nth-child(6) span.inactivo {
+  background-color: rgb(254, 215, 213);
+  color: rgb(234, 88, 12);
 }
 .contenido__table__body__item div:nth-child(7) {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.contenido__table__body__item div:nth-child(7) button {
+.contenido__table__body__item div:nth-child(7) button, .contenido__table__body__item div:nth-child(7) a {
   font-size: 1.6rem;
   border: none;
   padding: 1rem;
@@ -1939,16 +1954,19 @@ a {
   cursor: pointer;
   border-radius: 1rem;
 }
-.contenido__table__body__item div:nth-child(7) button:first-child {
+.contenido__table__body__item div:nth-child(7) button:first-child, .contenido__table__body__item div:nth-child(7) a:first-child {
   color: rgb(147, 51, 234);
 }
-.contenido__table__body__item div:nth-child(7) button:first-child:hover {
+.contenido__table__body__item div:nth-child(7) button:first-child:hover, .contenido__table__body__item div:nth-child(7) a:first-child:hover {
   background-color: rgb(237, 233, 254);
 }
-.contenido__table__body__item div:nth-child(7) button:last-child {
+.contenido__table__body__item div:nth-child(7) button:last-child, .contenido__table__body__item div:nth-child(7) a:last-child {
   color: rgb(234, 88, 12);
 }
-.contenido__table__body__item div:nth-child(7) button:last-child:hover {
+.contenido__table__body__item div:nth-child(7) button:last-child i, .contenido__table__body__item div:nth-child(7) a:last-child i {
+  pointer-events: none;
+}
+.contenido__table__body__item div:nth-child(7) button:last-child:hover, .contenido__table__body__item div:nth-child(7) a:last-child:hover {
   background-color: rgb(254, 215, 213);
 }
 .contenido__mensajes {

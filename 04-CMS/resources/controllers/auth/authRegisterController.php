@@ -36,7 +36,44 @@
                 return [$errores, $data];
             }
             else {
-                dd("Registro exitoso");
+                postRegistrarUsuario($nombres, $apellidos, $email, $password);
+            }
+        }
+    }
+
+    function postRegistrarUsuario($nombres, $apellidos, $email, $password){
+        $token = md5($email);
+        $password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 12));
+        $res = query("INSERT INTO usuarios (nombres, apellidos, email, password, token) VALUES ('$nombres', '$apellidos', '$email', '$password', '$token')");
+        $msj = "<h3>Por favor, activa tu cuenta mediante el siguiente</h3><a href='http://localhost:3000/auth/activate?email=$email&token=$token'>Link</a>";
+        sendEmail($email, "Activar Cuenta", $msj);
+        if($res) {
+            setSwal("Registro Exitoso", "Por favor revisa tu correo para activar tu cuenta", "success");
+            redirect("/auth/register");
+        }
+    }
+
+    function postActivateUser() {
+        if(isset($_GET['email']) && isset($_GET['token'])){
+            $email = escape(trim($_GET['email']));
+            $token = escape(trim($_GET['token']));
+
+            $res = query("SELECT id FROM usuarios WHERE email = '$email' AND token = '$token'");
+
+            if(mysqli_num_rows($res) == 1) {
+                $user = arrayAssoc($res);
+                $userId = $user['id'];
+                $res = query("UPDATE usuarios SET token = '', estado = 1 WHERE id = $userId");
+                if($res) {
+                    setSwal('Activación Exitosa', 'Tu cuenta ha sido activada correctamente', 'success');
+                    redirect('/auth/login');
+                } else {
+                    setSwal('Error', 'No se pudo activar tu cuenta, por favor intenta nuevamente', 'error');
+                    redirect('/auth/register');
+                }
+            } else {
+                setSwal('Error', 'Credenciales inválidas o faltantes', 'error');
+                redirect('/auth/register');
             }
         }
     }
